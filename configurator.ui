@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>613</width>
-    <height>882</height>
+    <width>800</width>
+    <height>781</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,11 +23,20 @@
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QLabel" name="label_15">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>45</height>
+         </size>
+        </property>
         <property name="text">
          <string/>
         </property>
         <property name="pixmap">
          <pixmap>OnStep_Logo_Medium.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -36,7 +45,7 @@
         <property name="font">
          <font>
           <family>Waree</family>
-          <pointsize>16</pointsize>
+          <pointsize>15</pointsize>
           <weight>75</weight>
           <italic>false</italic>
           <bold>true</bold>
@@ -48,536 +57,1990 @@
        </widget>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QLabel" name="label_7">
-          <property name="text">
-           <string>Mount Type</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="mount_combo">
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="general_tab">
+         <attribute name="title">
+          <string>General</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
           <item>
-           <property name="text">
-            <string>Equatorial</string>
-           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QLabel" name="label_8">
+              <property name="text">
+               <string>Board Type</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="board_combo">
+              <item>
+               <property name="text">
+                <string>RAMPS 1.4 or 1.5</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>MiniPCB (2 axis)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>MaxPCB (4 axis)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>STM32F1</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>TivaC</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Classic</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Mega2560 Alternate</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Custom</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
-           <property name="text">
-            <string>Alt-Azimuth</string>
-           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QLabel" name="label_7">
+              <property name="text">
+               <string>Mount Type</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="mount_combo">
+              <item>
+               <property name="text">
+                <string>Equatorial</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Alt-Azimuth</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Fork</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
-           <property name="text">
-            <string>Fork</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QLabel" name="label_8">
-          <property name="text">
-           <string>Board Type</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="board_combo">
-          <item>
-           <property name="text">
-            <string>RAMPS 1.4 or 1.5</string>
-           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_10">
+              <property name="text">
+               <string>Max Rate Ratio</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="maxrate_spin">
+              <property name="maximum">
+               <number>256</number>
+              </property>
+              <property name="value">
+               <number>96</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
-           <property name="text">
-            <string>MiniPCB (2 axis)</string>
-           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <widget class="QLabel" name="label_13">
+              <property name="text">
+               <string>Auto Sideral Traking mod</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBox_11">
+              <item>
+               <property name="text">
+                <string>OFF</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>ON</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
-           <property name="text">
-            <string>MaxPCB (4 axis)</string>
-           </property>
+           <layout class="QGridLayout" name="gridLayout">
+            <item row="5" column="2">
+             <widget class="QComboBox" name="axis2_mod_combo">
+              <item>
+               <property name="text">
+                <string>OFF</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>1</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>2</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>4</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>8</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>16</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>32</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>64</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>128</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>256</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>Worm Wheel Ratio</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QComboBox" name="axis1_mod_combo">
+              <item>
+               <property name="text">
+                <string>OFF</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>1</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>2</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>4</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>8</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>16</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>32</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>64</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>128</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>256</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="3" column="2">
+             <widget class="QComboBox" name="axis2_motor_combo">
+              <item>
+               <property name="text">
+                <string>200 steps, 1.8°/step</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>400 steps, 0.9°/step</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>48 steps, 7.5°/step</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="6" column="1">
+             <widget class="QComboBox" name="axis1_driver_combo">
+              <item>
+               <property name="text">
+                <string>A4988</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>DRV8825</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>LV8729 or RAPS128</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>TMC2208</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>TMC2130</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>TMC2130 (Quiet)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>TMC2130 (VQuiet)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>TMC2130 (Quiet, LowPWR)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>TMC2130 (VQuiet, LowPWR)</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QDoubleSpinBox" name="axis1_gear_spindouble">
+              <property name="decimals">
+               <number>3</number>
+              </property>
+              <property name="minimum">
+               <double>1.000000000000000</double>
+              </property>
+              <property name="maximum">
+               <double>99999.990000000005239</double>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QDoubleSpinBox" name="axis1_worm_spindouble">
+              <property name="decimals">
+               <number>3</number>
+              </property>
+              <property name="minimum">
+               <double>1.000000000000000</double>
+              </property>
+              <property name="maximum">
+               <double>99999.990000000005239</double>
+              </property>
+              <property name="value">
+               <double>144.000000000000000</double>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="2">
+             <widget class="QComboBox" name="axis2_driver_combo">
+              <item>
+               <property name="text">
+                <string>A4988</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>DRV8825</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>LV8729 or RAPS128</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>TMC2208</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>TMC2130</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>TMC2130 (Quiet)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>TMC2130 (VQuiet)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>TMC2130 (Quiet, LowPWR)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>TMC2130 (VQuiet, LowPWR)</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QDoubleSpinBox" name="axis2_worm_spindouble">
+              <property name="decimals">
+               <number>3</number>
+              </property>
+              <property name="minimum">
+               <double>1.000000000000000</double>
+              </property>
+              <property name="maximum">
+               <double>99999.990000000005239</double>
+              </property>
+              <property name="value">
+               <double>144.000000000000000</double>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>Gears/Pulleys Ratio</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="1">
+             <widget class="QCheckBox" name="checkBox_20">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="2">
+             <widget class="QDoubleSpinBox" name="axis2_gear_spindouble">
+              <property name="decimals">
+               <number>3</number>
+              </property>
+              <property name="minimum">
+               <double>1.000000000000000</double>
+              </property>
+              <property name="maximum">
+               <double>99999.990000000005239</double>
+              </property>
+              <property name="value">
+               <double>1.000000000000000</double>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QComboBox" name="axis1_motor_combo">
+              <item>
+               <property name="text">
+                <string>200 steps, 1.8°/step</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>400 steps, 1.8°/step</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>48 steps, 7.5°/step</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>Axis 1</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="2">
+             <widget class="QComboBox" name="axis2_micro_combo">
+              <item>
+               <property name="text">
+                <string>1</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>2</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>4</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>8</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>16</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>32</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>64</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>128</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>256</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string>Stepper-Steps</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QComboBox" name="axis1_micro_combo">
+              <item>
+               <property name="text">
+                <string>1</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>2</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>4</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>8</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>16</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>32</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>64</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>128</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>256</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="label_6">
+              <property name="text">
+               <string>MicroSteps Tracking</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>Axis 2</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QLabel" name="label_11">
+              <property name="text">
+               <string>MicroSteps Slewing</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="label_25">
+              <property name="text">
+               <string>Reverse axis</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="2">
+             <widget class="QCheckBox" name="checkBox_21">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <widget class="QLabel" name="label_12">
+              <property name="text">
+               <string>Driver Model</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="1">
+             <widget class="QComboBox" name="comboBox_4">
+              <item>
+               <property name="text">
+                <string>HIGH</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>LOW</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="8" column="2">
+             <widget class="QComboBox" name="comboBox_5">
+              <item>
+               <property name="text">
+                <string>HIGH</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>LOW</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="8" column="0">
+             <widget class="QLabel" name="label_26">
+              <property name="text">
+               <string>Enable support</string>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="0">
+             <widget class="QLabel" name="label_27">
+              <property name="text">
+               <string>Fault Detection </string>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="1">
+             <widget class="QComboBox" name="comboBox_6">
+              <item>
+               <property name="text">
+                <string>OFF</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>HIGH</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>LOW</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="9" column="2">
+             <widget class="QComboBox" name="comboBox_7">
+              <item>
+               <property name="text">
+                <string>OFF</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>HIGH</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>LOW</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
           </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="axis3_2_tab">
+         <attribute name="title">
+          <string>Axis3/2</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_35">
+            <property name="text">
+             <string> Stepper Steps</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="label_41">
+            <property name="text">
+             <string> Max axis (degrees or millimeters)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_10">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimum">
+             <double>-180.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>180.000000000000000</double>
+            </property>
+            <property name="value">
+             <double>180.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QSpinBox" name="spinBox_12">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="maximum">
+             <number>256</number>
+            </property>
+            <property name="value">
+             <number>8</number>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="2">
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimum">
+             <double>-999999.989999999990687</double>
+            </property>
+            <property name="maximum">
+             <double>999999.989999999990687</double>
+            </property>
+            <property name="value">
+             <double>-25.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QSpinBox" name="spinBox_14">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="maximum">
+             <number>256</number>
+            </property>
+            <property name="value">
+             <number>8</number>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_38">
+            <property name="text">
+             <string> Gear 1 reduction Ratio</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <item>
+             <widget class="QLabel" name="label_37">
+              <property name="text">
+               <string> Rotator : Gear 2 reduction Ratio</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_42">
+              <property name="text">
+               <string> Focuser : Step/MicroMeter</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="label_39">
+            <property name="text">
+             <string> Reverse Axis</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="label_40">
+            <property name="text">
+             <string> Min axis (degrees or millimeters)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="2">
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_7">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="maximum">
+             <double>999999.989999999990687</double>
+            </property>
+            <property name="value">
+             <double>0.500000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QCheckBox" name="checkBox_25">
+            <property name="text">
+             <string>Focuser 2</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QCheckBox" name="checkBox_26">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="3">
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_12">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimum">
+             <double>-999999.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999999.989999999990687</double>
+            </property>
+            <property name="value">
+             <double>25.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QCheckBox" name="checkBox_24">
+            <property name="text">
+             <string>Focuser 1</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QComboBox" name="comboBox_8">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QCheckBox" name="checkBox_23">
+            <property name="text">
+             <string>De-Rotator</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="3">
+           <widget class="QCheckBox" name="checkBox_28">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_34">
+            <property name="text">
+             <string> Max Rate Ratio</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_36">
+            <property name="text">
+             <string> Micro Steps</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="3">
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_8">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="maximum">
+             <double>999999.989999999990687</double>
+            </property>
+            <property name="value">
+             <double>0.500000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="2">
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_11">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimum">
+             <double>-999999.989999999990687</double>
+            </property>
+            <property name="maximum">
+             <double>999999.989999999990687</double>
+            </property>
+            <property name="value">
+             <double>25.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimum">
+             <double>-180.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>180.000000000000000</double>
+            </property>
+            <property name="value">
+             <double>-180.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="maximum">
+             <double>999999.989999999990687</double>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QSpinBox" name="spinBox_13">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="maximum">
+             <number>256</number>
+            </property>
+            <property name="value">
+             <number>8</number>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="2">
+           <widget class="QCheckBox" name="checkBox_27">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QComboBox" name="comboBox_12">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <item>
+             <property name="text">
+              <string>1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>4</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>8</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>16</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>32</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>64</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>128</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>256</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="7" column="3">
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_9">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimum">
+             <double>-999999.989999999990687</double>
+            </property>
+            <property name="maximum">
+             <double>999999.989999999990687</double>
+            </property>
+            <property name="value">
+             <double>-25.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_6">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="maximum">
+             <double>999999.989999999990687</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="option_tab">
+         <attribute name="title">
+          <string>Option</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_9">
           <item>
-           <property name="text">
-            <string>STM32F1</string>
-           </property>
+           <widget class="QScrollArea" name="scrollArea">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOn</enum>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollAreaWidgetContents_2">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>742</width>
+               <height>857</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <widget class="QLabel" name="label_18">
+                <property name="font">
+                 <font>
+                  <underline>true</underline>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Tick for activate option :</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_13">
+                <item>
+                 <widget class="QLabel" name="label_20">
+                  <property name="text">
+                   <string>Serial 1 Baud (bit/s):</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_3">
+                  <property name="currentIndex">
+                   <number>10</number>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>75</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>110</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>134.5</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>150</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>600</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>1200</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>1800</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>2400</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>4800</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>7200</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>9600</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>14400</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>19200</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>38400</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>56000</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>57600</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>115200</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>128000</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_4">
+                <property name="spacing">
+                 <number>6</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="checkBox">
+                  <property name="text">
+                   <string>PEC</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_3">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_9">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="text">
+                   <string>PEC Buffer Size :</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="pec_spin">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="maximum">
+                   <number>100000</number>
+                  </property>
+                  <property name="value">
+                   <number>824</number>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_4">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_2">
+                <property name="text">
+                 <string>Align Goto Assist</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_3">
+                <property name="text">
+                 <string>Strict Parking</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="Line" name="line">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_8">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_5">
+                  <property name="text">
+                   <string>ST4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_6">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="text">
+                   <string>Alternate Pins</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_2">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_4">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="text">
+                   <string>Hand Control</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_5">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_7">
+                <property name="text">
+                 <string>Separate pulse guide rate</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_14">
+                <item>
+                 <widget class="QLabel" name="label_21">
+                  <property name="text">
+                   <string>Guide time Limit (seconds) :</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_4">
+                  <property name="maximum">
+                   <number>86400</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_9">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_14">
+                  <property name="text">
+                   <string>RTC</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_6">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>150</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>RTC_DS3234</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_7">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_8">
+                <property name="text">
+                 <string>PPS sensor</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_10">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_9">
+                  <property name="text">
+                   <string>PEC sensor ( 0 for digital)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="maximum">
+                   <number>1023</number>
+                  </property>
+                  <property name="value">
+                   <number>1023</number>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_2">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>HIGH</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>LOW</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_10">
+                <property name="text">
+                 <string>Limit Sensor</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_11">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_11">
+                  <property name="text">
+                   <string>Status LED</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_8">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_13">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="text">
+                   <string>Reticule LED</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_2">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="maximum">
+                   <number>255</number>
+                  </property>
+                  <property name="value">
+                   <number>255</number>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_9">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_12">
+                <property name="text">
+                 <string>Status LED 2</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_12">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_15">
+                  <property name="text">
+                   <string>Buzzer</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_10">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_19">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="text">
+                   <string>Buzzer frequency (Hz) :</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_3">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="maximum">
+                   <number>30000</number>
+                  </property>
+                  <property name="value">
+                   <number>2000</number>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_11">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_16">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="text">
+                   <string>Default Sound</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_12">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="Line" name="line_3">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_17">
+                <property name="text">
+                 <string>Traking compensation for atmospheric refaction</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_18">
+                <property name="text">
+                 <string>Home Pause</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_19">
+                <property name="text">
+                 <string>Remember Max Rate</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_17">
+                <item>
+                 <widget class="QLabel" name="label_22">
+                  <property name="text">
+                   <string>Degrees for Acceleration :</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+                  <property name="decimals">
+                   <number>1</number>
+                  </property>
+                  <property name="minimum">
+                   <double>1.000000000000000</double>
+                  </property>
+                  <property name="singleStep">
+                   <double>1.000000000000000</double>
+                  </property>
+                  <property name="value">
+                   <double>5.000000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_16">
+                <item>
+                 <widget class="QLabel" name="label_23">
+                  <property name="text">
+                   <string>Degrees for Rapid Stop :</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QDoubleSpinBox" name="doubleSpinBox">
+                  <property name="decimals">
+                   <number>1</number>
+                  </property>
+                  <property name="minimum">
+                   <double>1.000000000000000</double>
+                  </property>
+                  <property name="value">
+                   <double>1.000000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_15">
+                <item>
+                 <widget class="QLabel" name="label_24">
+                  <property name="text">
+                   <string>Backlash Take up Rate :</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_5">
+                  <property name="value">
+                   <number>25</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_22">
+                <property name="text">
+                 <string>Auto Power Off Axis 2</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="Line" name="line_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_18">
+                <item>
+                 <widget class="QLabel" name="label_28">
+                  <property name="text">
+                   <string>Minute Past Meridian E</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_6">
+                  <property name="minimum">
+                   <number>-360</number>
+                  </property>
+                  <property name="maximum">
+                   <number>360</number>
+                  </property>
+                  <property name="value">
+                   <number>30</number>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_29">
+                  <property name="text">
+                   <string>W</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_7">
+                  <property name="minimum">
+                   <number>-360</number>
+                  </property>
+                  <property name="maximum">
+                   <number>360</number>
+                  </property>
+                  <property name="value">
+                   <number>30</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_19">
+                <item>
+                 <widget class="QLabel" name="label_30">
+                  <property name="text">
+                   <string>Minimum DEC</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_8">
+                  <property name="minimum">
+                   <number>-91</number>
+                  </property>
+                  <property name="maximum">
+                   <number>90</number>
+                  </property>
+                  <property name="value">
+                   <number>-91</number>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_31">
+                  <property name="text">
+                   <string>Maximum DEC</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_9">
+                  <property name="minimum">
+                   <number>-91</number>
+                  </property>
+                  <property name="maximum">
+                   <number>91</number>
+                  </property>
+                  <property name="value">
+                   <number>91</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_20">
+                <item>
+                 <widget class="QLabel" name="label_32">
+                  <property name="text">
+                   <string>Under Pole Limit (hours)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_10">
+                  <property name="minimum">
+                   <number>10</number>
+                  </property>
+                  <property name="maximum">
+                   <number>12</number>
+                  </property>
+                  <property name="value">
+                   <number>12</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_21">
+                <item>
+                 <widget class="QLabel" name="label_33">
+                  <property name="text">
+                   <string>Max Azimuth (degrees)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_11">
+                  <property name="minimum">
+                   <number>180</number>
+                  </property>
+                  <property name="maximum">
+                   <number>360</number>
+                  </property>
+                  <property name="value">
+                   <number>180</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </widget>
           </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="arduino_tab">
+         <attribute name="title">
+          <string>Compile and Upload</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_10">
           <item>
-           <property name="text">
-            <string>TivaC</string>
-           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_17">
+              <property name="text">
+               <string>This Tab is dedicated to generate and upload the OnStep code in the board</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_16">
+              <property name="text">
+               <string>Coming Soon !!!</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_7">
+              <item>
+               <widget class="QPushButton" name="pushButton_2">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>Build</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>Upload</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
           </item>
-          <item>
-           <property name="text">
-            <string>Classic</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Mega2560 Alternate</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Custom</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
-        <item>
-         <widget class="QLabel" name="label_10">
-          <property name="text">
-           <string>Max Rate Ratio</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QSpinBox" name="maxrate_spin">
-          <property name="maximum">
-           <number>128</number>
-          </property>
-          <property name="value">
-           <number>32</number>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
-        <item>
-         <widget class="QLabel" name="label_9">
-          <property name="text">
-           <string>PEC Buffer Size</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QSpinBox" name="pec_spin">
-          <property name="maximum">
-           <number>100000</number>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_5">
-        <item>
-         <widget class="QLabel" name="label_13">
-          <property name="text">
-           <string>Auto Sideral Traking mod</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="comboBox_11">
-          <item>
-           <property name="text">
-            <string>Off</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>On</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QGridLayout" name="gridLayout">
-        <item row="2" column="0">
-         <widget class="QLabel" name="label_4">
-          <property name="text">
-           <string>Gears/Pulleys Ratio</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QDoubleSpinBox" name="axis1_worm_spindouble">
-          <property name="decimals">
-           <number>3</number>
-          </property>
-          <property name="minimum">
-           <double>1.000000000000000</double>
-          </property>
-          <property name="maximum">
-           <double>99999.990000000005239</double>
-          </property>
-          <property name="value">
-           <double>144.000000000000000</double>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QDoubleSpinBox" name="axis1_gear_spindouble">
-          <property name="decimals">
-           <number>3</number>
-          </property>
-          <property name="minimum">
-           <double>1.000000000000000</double>
-          </property>
-          <property name="maximum">
-           <double>99999.990000000005239</double>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="2">
-         <widget class="QDoubleSpinBox" name="axis2_gear_spindouble">
-          <property name="decimals">
-           <number>3</number>
-          </property>
-          <property name="minimum">
-           <double>1.000000000000000</double>
-          </property>
-          <property name="maximum">
-           <double>99999.990000000005239</double>
-          </property>
-          <property name="value">
-           <double>1.000000000000000</double>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="0">
-         <widget class="QLabel" name="label_6">
-          <property name="text">
-           <string>MicroSteps Tracking</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>Axis 1</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>Axis 2</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <widget class="QDoubleSpinBox" name="axis2_worm_spindouble">
-          <property name="decimals">
-           <number>3</number>
-          </property>
-          <property name="minimum">
-           <double>1.000000000000000</double>
-          </property>
-          <property name="maximum">
-           <double>99999.990000000005239</double>
-          </property>
-          <property name="value">
-           <double>144.000000000000000</double>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="1">
-         <widget class="QComboBox" name="axis1_motor_combo">
-          <item>
-           <property name="text">
-            <string>200 steps, 1.8°/step</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>400 steps, 1.8°/step</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>48 steps, 7.5°/step</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item row="6" column="1">
-         <widget class="QComboBox" name="axis1_driver_combo">
-          <item>
-           <property name="text">
-            <string>A4988</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>DRV8825</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>LV8729 or RAPS128</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>TMC2208</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>TMC2130</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>TMC2130 (Quiet)</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>TMC2130 (VQuiet)</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>TMC2130 (Quiet, LowPWR)</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>TMC2130 (VQuiet, LowPWR)</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="label_5">
-          <property name="text">
-           <string>Stepper-Steps</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="2">
-         <widget class="QComboBox" name="axis2_motor_combo">
-          <item>
-           <property name="text">
-            <string>200 steps, 1.8°/step</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>400 steps, 0.9°/step</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>48 steps, 7.5°/step</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item row="6" column="2">
-         <widget class="QComboBox" name="axis2_driver_combo">
-          <item>
-           <property name="text">
-            <string>A4988</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>DRV8825</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>LV8729 or RAPS128</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>TMC2208</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>TMC2130</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>TMC2130 (Quiet)</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>TMC2130 (VQuiet)</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>TMC2130 (Quiet, LowPWR)</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>TMC2130 (VQuiet, LowPWR)</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="label_3">
-          <property name="text">
-           <string>Worm Wheel Ratio</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="1">
-         <widget class="QComboBox" name="axis1_micro_combo">
-          <item>
-           <property name="text">
-            <string>1</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>2</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>4</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>8</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>16</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>32</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>64</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>128</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>256</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item row="4" column="2">
-         <widget class="QComboBox" name="axis2_micro_combo">
-          <item>
-           <property name="text">
-            <string>1</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>2</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>4</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>8</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>16</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>32</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>64</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>128</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>256</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item row="5" column="0">
-         <widget class="QLabel" name="label_11">
-          <property name="text">
-           <string>MicroSteps Slewing</string>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="0">
-         <widget class="QLabel" name="label_12">
-          <property name="text">
-           <string>Driver Model</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="1">
-         <widget class="QComboBox" name="axis1_mod_combo">
-          <item>
-           <property name="text">
-            <string>Same as tracking</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Off</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item row="5" column="2">
-         <widget class="QComboBox" name="axis2_mod_combo">
-          <item>
-           <property name="text">
-            <string>Same as tracking</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Off</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-       </layout>
+         </layout>
+        </widget>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="generate_buttom">
@@ -602,6 +2065,12 @@
       </item>
       <item>
        <widget class="QTextBrowser" name="prompt_textbrowser">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>100</height>
+         </size>
+        </property>
         <property name="html">
          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -628,7 +2097,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>613</width>
+     <width>800</width>
      <height>22</height>
     </rect>
    </property>
@@ -692,12 +2161,524 @@ p, li { white-space: pre-wrap; }
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>556</x>
-     <y>844</y>
+     <x>565</x>
+     <y>1242</y>
     </hint>
     <hint type="destinationlabel">
      <x>555</x>
      <y>858</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_14</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>checkBox_12</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>73</x>
+     <y>448</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>72</x>
+     <y>596</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>pec_spin</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>74</x>
+     <y>239</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>458</x>
+     <y>251</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_5</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>checkBox_6</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>72</x>
+     <y>346</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>232</x>
+     <y>340</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_5</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>checkBox_4</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>72</x>
+     <y>338</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>522</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_9</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>spinBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>127</x>
+     <y>510</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>324</x>
+     <y>510</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_9</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>comboBox_2</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>111</x>
+     <y>509</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>522</x>
+     <y>508</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_11</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>checkBox_13</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>94</x>
+     <y>566</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>350</x>
+     <y>562</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_13</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>spinBox_2</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>383</x>
+     <y>565</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>476</x>
+     <y>576</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_14</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>comboBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>75</x>
+     <y>454</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>405</x>
+     <y>445</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_12</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>checkBox_14</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>123</x>
+     <y>592</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>75</x>
+     <y>441</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>label_9</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>66</x>
+     <y>241</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>320</x>
+     <y>251</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_15</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>label_19</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>56</x>
+     <y>637</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>205</x>
+     <y>640</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_15</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>spinBox_3</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>51</x>
+     <y>630</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>374</x>
+     <y>643</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_15</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>checkBox_16</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>43</x>
+     <y>629</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>519</x>
+     <y>638</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_23</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>spinBox_12</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>283</x>
+     <y>187</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_23</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>comboBox_8</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>341</x>
+     <y>187</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>343</x>
+     <y>301</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_23</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>comboBox_12</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>196</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>316</x>
+     <y>352</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_23</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>doubleSpinBox_3</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>370</x>
+     <y>190</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>363</x>
+     <y>403</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_23</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>doubleSpinBox_6</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>385</x>
+     <y>193</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>349</x>
+     <y>475</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_23</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>checkBox_26</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>268</x>
+     <y>191</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>263</x>
+     <y>525</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_23</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>doubleSpinBox_4</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>385</x>
+     <y>187</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>385</x>
+     <y>570</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_23</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>doubleSpinBox_10</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>301</x>
+     <y>189</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>310</x>
+     <y>628</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_24</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>spinBox_13</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>471</x>
+     <y>185</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>455</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_24</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>doubleSpinBox_7</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>484</x>
+     <y>191</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>473</x>
+     <y>466</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_24</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>checkBox_27</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>508</x>
+     <y>183</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>501</x>
+     <y>529</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_24</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>doubleSpinBox_5</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>518</x>
+     <y>191</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>525</x>
+     <y>578</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_24</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>doubleSpinBox_11</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>436</x>
+     <y>188</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>446</x>
+     <y>628</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_25</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>spinBox_14</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>584</x>
+     <y>182</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>591</x>
+     <y>237</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_25</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>doubleSpinBox_8</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>623</x>
+     <y>187</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>611</x>
+     <y>478</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_25</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>checkBox_28</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>578</x>
+     <y>193</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>561</x>
+     <y>533</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_25</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>doubleSpinBox_9</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>630</x>
+     <y>190</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>597</x>
+     <y>577</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_25</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>doubleSpinBox_12</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>577</x>
+     <y>190</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>579</x>
+     <y>639</y>
     </hint>
    </hints>
   </connection>
