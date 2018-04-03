@@ -57,8 +57,8 @@ def test_config(mount_type, board_type, max_rate, pec, auto_sid, worm1, gear1, s
     config_file.write("// _ALTAZM is for Alt/Azm mounted 'scopes (1 star align only.)")
     config_file.write("#define MOUNT_TYPE_GEM")
     config_file.write("")
-    config_file.write("// Strict parking, default=_OFF.  Set to _ON and unparking is only allowed if successfully parked.  Otherwise unparking is allowed if at home and not parked (the Home/Reset command ":hF#" sets this state.) ")
-    config_file.write("#define STRICT_PARKING_OFF")")
+    config_file.write("// Strict parking, default=_OFF.  Set to _ON and unparking is only allowed if successfully parked.  Otherwise unparking is allowed if at home and not parked (the Home/Reset command \":hF#\" sets this state.) ")
+    config_file.write("#define STRICT_PARKING_OFF")
     config_file.write("")
     config_file.write("// ST4 interface on pins 24, 25, 26, 27.  Pin 24 is RA- (West), Pin 25 is Dec- (South), Pin 26 is Dec+ (North), Pin 27 is RA+ (East.)")
     config_file.write("// ST4_ON enables the interface.  ST4_PULLUP enables the interface and any internal pullup resistors.")
@@ -132,7 +132,7 @@ def test_config(mount_type, board_type, max_rate, pec, auto_sid, worm1, gear1, s
     config_file.write("                                     // Default=5.0, too low (about <1) can cause gotos to never end if micro-step mode switching is enabled.")
     config_file.write("#define DegreesForRapidStop      1.0 // approximate number of degrees required to stop when requested or if limit is exceeded during a slew: higher values=longer deceleration")
     config_file.write("                                     // Default=1.0, too low (about <1) can cause gotos to never end if micro-step mode switching is enabled.")
-    config_file.write("
+    config_file.write("")
     config_file.write("#define BacklashTakeupRate        25 // backlash takeup rate (in multipules of the sidereal rate): too fast and your motors will stall,")
     config_file.write("                                     // too slow and the mount will be sluggish while it moves through the backlash")
     config_file.write("                                     // for the most part this doesn't need to be changed, but adjust when needed.  Default=25")
@@ -223,7 +223,8 @@ def test_config(mount_type, board_type, max_rate, pec, auto_sid, worm1, gear1, s
     config_file.write("#define AXIS4_REVERSE_OFF            // reverse the direction of Axis4 focuser movement")
     config_file.write("#define AXIS4_DISABLE_OFF            // Pin 39 (Aux4.)  Use HIGH for common stepper drivers if you want to power down the motor at stand-still.  Default _OFF.")
     config_file.write("")
-    if board != "TM4C"
+    
+    if board != "TM4C":
         config_file.write("// FOCUSER2 ---------------------------------------------------------------------------------------------------------------")
         config_file.write("// Pins 30,33 = Step,Dir (choose either this option or the rotator, not both) ")
         config_file.write("#define FOCUSER2_OFF                 // enable or disable focuser feature, default=_OFF")
@@ -234,9 +235,12 @@ def test_config(mount_type, board_type, max_rate, pec, auto_sid, worm1, gear1, s
         config_file.write("#define AXIS5_REVERSE_OFF            // reverse the direction of Axis5 focuser movement")
         config_file.write("#define AXIS5_DISABLE_OFF            // Pin 36 (Aux3.)  Use HIGH for common stepper drivers if you want to power down the motor at stand-still.  Default _OFF.")
         config_file.write("")
+        
     config_file.write("// THAT'S IT FOR USER CONFIGURATION!")
     config_file.write("")
     config_file.write("// -------------------------------------------------------------------------------------------------------------------------")
     config_file.write("#define FileVersionConfig 2")
     config_file.write("#include \"Pins."+board+".h\"")
     config_file.write("#endif")
+                      
+    config_file.close()
