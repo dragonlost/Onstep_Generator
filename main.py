@@ -42,7 +42,9 @@ class ShipHolderApplication(QtWidgets.QMainWindow):
 		micro2 = self.ui.axis2_micro_combo.currentText()
 		slew2 = self.ui.axis2_mod_combo.currentText()
 		driver2 = self.ui.axis2_driver_combo.currentText()
-		tt.test_config(mount_type, board_type, max_rate, pec, auto_sid, worm1, gear1, stepper1, micro1, slew1, driver1, worm2, gear2, stepper2, micro2, slew2, driver2)
+                tt.test_config(mount_type, board_type, max_rate, pec, auto_sid,
+                worm1, gear1, stepper1, micro1, slew1, driver1, worm2, gear2,
+                stepper2, micro2, slew2, driver2)
 
 	def path_click(self):
 		self.PathName = QtWidgets.QFileDialog.getSaveFileName( self, 

@@ -34,3 +34,8 @@ FORMS += \
         configurator.ui \
     about.ui \
     groupbox.ui
+
+DISTFILES += \
+    main.py \
+    configurator.py \
+    generator.py
