@@ -59,7 +59,7 @@
       <item>
        <widget class="QTabWidget" name="tabWidget">
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="general_tab">
          <attribute name="title">
@@ -1179,7 +1179,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="serial_comboBox">
+                 <widget class="QComboBox" name="serial_baud_comboBox">
                   <property name="currentIndex">
                    <number>10</number>
                   </property>
