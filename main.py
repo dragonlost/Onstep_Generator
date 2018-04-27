@@ -10,6 +10,7 @@ class ShipHolderApplication(QtWidgets.QMainWindow):
         super(ShipHolderApplication, self).__init__(parent)
         self.createWidgets()
         self.connectActions()
+        self.PathName=''
 
     def createWidgets(self):
         self.ui = Ui_configurator()
@@ -29,14 +30,18 @@ class ShipHolderApplication(QtWidgets.QMainWindow):
         var = self.call_var(self)
         temp_path = "config_file_temp.conf"
         self.create_conf_file(temp_path,var)
-        gen.test_config(temp_path)
+        if self.PathName == '':
+            gen.test_config(temp_path, self.PathName[0])
+        else:
+            gen.test_config(temp_path, self.PathName[0])
 
     def path_click(self):
         self.PathName = QtWidgets.QFileDialog.getSaveFileName( self, 
 			"Define Save File for OnStep Conf", QtCore.QDir.homePath(), 
 			"text File (*.txt)")
         self.ui.path_line.setText(self.PathName[0])
-        print(self.PathName[0])
+        self.PathName = self.PathName[0]
+        print(self.PathName)
 
     def about_click(self):
         QtWidgets.QMessageBox.about(self,'About',"Onstep configurator GUI\n about sebastien Durand")
@@ -188,7 +193,7 @@ class ShipHolderApplication(QtWidgets.QMainWindow):
         self.LoadName = QtWidgets.QFileDialog.getOpenFileName( self, 
 			"Ouvrir un fichier monture", QtCore.QDir.homePath())
         print(self.LoadName[0])
-        self.read_conf_file(self.LoadName[0])
+        var = gen.read_conf_file(self.LoadName[0])
         
     def create_conf_file(self,path_name,var):
         
@@ -199,20 +204,6 @@ class ShipHolderApplication(QtWidgets.QMainWindow):
             
         file.close()
         
-        
-    def read_conf_file(self,path_name):
-        file = open(path_name,'r')
-        
-        text = file.readlines()
-        text = np.array(text)
-        for i in range(text.size) : text[i]=text[i].strip()
-        # Convertion des variables (float32, int32, bool)
-        #text[[1,2,3]] = np.float32(text[[1,2,3]])
-        
-        
-        file.close()
-        
-        return var
     
     def main(self):
         self.show()

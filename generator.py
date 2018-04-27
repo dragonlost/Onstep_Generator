@@ -2,8 +2,130 @@
 
 import time
 import os
+import numpy as np
 
-def test_config(mount_type, board_type, max_rate, pec, auto_sid, worm1, gear1, stepper1, micro1, slew1, driver1, worm2, gear2, stepper2, micro2, slew2, driver2,path=os.getcwd()+'/config_'+time.strftime("%d_%Y_%H_%M_%S", time.localtime())+'.txt'):
+def read_conf_file(path_name):
+    file = open(path_name,'r')
+    
+    text = file.readlines()
+    text = np.array(text)
+    for i in range(text.size) : text[i]=text[i].strip()
+    # Convertion des variables (float32, int32, bool)
+    
+    ff = [5,6,14,15,29,30,35,40,32,33,37,38,42,43,71,72]
+    ii = [3,26,24,39,46,48,56,58,63,66,73,75,76,77,78,79,80]
+    bb = [11,20,23,24,25,31,36,41,45,47,50,51,52,53,54,55,57,59,60,61,62,64,65,67,68,69,70,74]
+    ss = [0,1,4,7,8,7,9,10,12,13,16,17,18,19,21,22,27,28,44,58,49]
+    
+    for i in ff:
+        text[ff] = np.float32(text[ff])
+    for i in ii:
+        text[ii] = np.int32(text[ii])
+    for i in bb:
+        text[bb] = np.bool(text[bb])
+    
+    
+    file.close()
+    
+    return text
+
+
+def test_config(path_read, path=os.getcwd()+'/config_'+time.strftime("%d_%Y_%H_%M_%S", time.localtime())+'.txt'):
+
+    
+    var = read_conf_file(path_read)
+    
+
+    board_type = var[0]
+    mount_type = var[1]
+    max_rate = var[2]
+    pec_spin = var[3]
+    auto_sid = var[4]
+    
+    worm1 = var[5]
+    gear1 = var[6]
+    stepper1 = var[7]
+    micro1 = var[8] 
+    slew1 = var[9]
+    driver1 = var[10] 
+    reverse1 = var[11]
+    ena1 = var[12]
+    fault1 = var[13] 
+    
+    worm2 = var[14]
+    gear2 = var[15]
+    stepper2 = var[16] 
+    micro2 = var[17]
+    slew2 = var[18]
+    driver2 = var[19]
+    reverse2 = var[20]
+    ena2 = var[21]    
+    fault2 = var[22]
+    
+    rot3 = var[23] 
+    foc1 = var[24] 
+    foc2 = var[25]
+    
+    rot_rate = var[26]
+    rot_step = var[27]
+    rot_micro = var[28]
+    rot_gear = var[29]
+    rot_gear_2 = var[30] 
+    rot_reverse = var[31] 
+    rot_min_degr = var[32]
+    rot_max_degr = var[33]
+    
+    foc1_rate = var[34]
+    foc1_ratio = var[35] 
+    foc1_reverse = var[36] 
+    foc1_min_mm = var[37] 
+    foc1_max_mm = var[38]
+    
+    foc2_rate = var[39]
+    foc2_ratio = var[40]
+    foc2_reverse = var[41] 
+    foc2_min_mm = var[42]
+    foc2_max_mm = var[43] 
+    
+    baud = var[44]
+    pec = var[45] 
+    pec_buffer = var[46] 
+    pec_set = var[47]
+    analog_pec = var[48] 
+    pec_logic = var[49] 
+    goto_assist = var[50] 
+    strict_park = var[51]
+    st4 = var[52]
+    alt_st4 = var[53]
+    hand = var[54]
+    pulse = var[55]
+    guide_time = var[56]
+    rtc = var[57]
+    rtc_time = var[58] 
+    pps = var[59]
+    limit = var[60] 
+    led1 = var[61]
+    reticule = var[62] 
+    led_intensity = var[63]
+    led2 = var[64]
+    buzzer = var[65]
+    freq_sound = var[66] 
+    def_sound = var[67] 
+    atmos = var[68]
+    home_pause = var[69] 
+    max_rate = var[70]
+    accel = var[71]
+    rapid_stop = var[72] 
+    backlash = var[73]
+    off_axis = var[74] 
+    degre_e = var[75] 
+    degre_w = var[76] 
+    min_dec = var[77]
+    max_dec = var[78]
+    pol_limit = var[79] 
+    max_az = var[80]
+    
+
 
     if board_type == "RAMPS 1.4 or 1.5":
         board="Ramps14"
@@ -21,6 +143,25 @@ def test_config(mount_type, board_type, max_rate, pec, auto_sid, worm1, gear1, s
         board="Mega2560Alt"
     elif board_type == "Custom":
         board="Custom"
+
+
+
+    var = [board_type, mount_type, max_rate, pec_spin, auto_sid, worm1, 
+           gear1, stepper1, micro1, slew1, driver1, reverse1, ena1, fault1,
+           worm2, gear2, stepper2, micro2, slew2, driver2, reverse2, ena2,
+           fault2, rot3, foc1, foc2, rot_rate, rot_step, rot_micro, 
+           rot_gear, rot_gear_2, rot_reverse, rot_min_degr, rot_max_degr,
+           foc1_rate, foc1_ratio, foc1_reverse, foc1_min_mm, foc1_max_mm,
+           foc2_rate, foc2_ratio, foc2_reverse, foc2_min_mm, foc2_max_mm, 
+           baud, pec, pec_buffer, pec_set, analog_pec, pec_logic, 
+           goto_assist, strict_park, st4, alt_st4, hand, pulse, guide_time,
+           rtc, rtc_time, pps, limit, led1, reticule, led_intensity, led2,
+           buzzer, freq_sound, def_sound, atmos, home_pause, max_rate, 
+           accel, rapid_stop, backlash, off_axis, degre_e, degre_w, 
+           min_dec, max_dec, pol_limit, max_az]
+
+    
+
 
     config_file = open("Config"+board+".h","w")
 
