@@ -51,7 +51,6 @@ class ShipHolderApplication(QtWidgets.QMainWindow):
         mount_type = self.ui.mount_combo.currentText()
         board_type = self.ui.board_combo.currentText()
         max_rate = self.ui.maxrate_spin.value()
-        pec_spin = self.ui.pec_spin.value()
         auto_sid = self.ui.auto_side_combo.currentText()
 
         worm1 = self.ui.axis1_worm_spindouble.value()
@@ -122,7 +121,6 @@ class ShipHolderApplication(QtWidgets.QMainWindow):
         guide_time = self.ui.guide_time_spinBox.value()
         
         rtc = self.ui.rtc_checkBox.isChecked()
-        rtc_time = self.ui.rtc_time_comboBox.currentText()
         
         pps = self.ui.pps_checkBox.isChecked()
         
@@ -162,10 +160,23 @@ class ShipHolderApplication(QtWidgets.QMainWindow):
         
         max_az = self.ui.max_az_spinBox.value()
     
+        pec_pul = 0
+        st4_pull = 0
+        
+        mem_flip_mer = 0
+        mem_max_rate = 0
+        
+        buzzer_type =0
+        
+        esp_8266 = 0
+        
+        rot_disable = 0
+        focus1_disable = 0
+        focus2_disable = 0
         
         #________________________________________________________________
         
-        var = [mount_type, board_type, max_rate, pec_spin, auto_sid, worm1, 
+        var = [board_type, mount_type, max_rate, pec_pul, auto_sid, worm1, 
                gear1, stepper1, micro1, slew1, driver1, reverse1, ena1, fault1,
                worm2, gear2, stepper2, micro2, slew2, driver2, reverse2, ena2,
                fault2, rot3, foc1, foc2, rot_rate, rot_step, rot_micro, 
@@ -174,10 +185,11 @@ class ShipHolderApplication(QtWidgets.QMainWindow):
                foc2_rate, foc2_ratio, foc2_reverse, foc2_min_mm, foc2_max_mm, 
                baud, pec, pec_buffer, pec_set, analog_pec, pec_logic, 
                goto_assist, strict_park, st4, alt_st4, hand, pulse, guide_time,
-               rtc, rtc_time, pps, limit, led1, reticule, led_intensity, led2,
-               buzzer, freq_sound, def_sound, atmos, home_pause, max_rate, 
+               rtc, mem_flip_mer, pps, limit, led1, reticule, led_intensity, led2,
+               buzzer, freq_sound, def_sound, atmos, home_pause, mem_max_rate, 
                accel, rapid_stop, backlash, off_axis, degre_e, degre_w, 
-               min_dec, max_dec, pol_limit, max_az]
+               min_dec, max_dec, pol_limit, max_az, buzzer_type, esp_8266, rot_disable, 
+               focus1_disable, focus2_disable, st4_pull]
         
         return var
     
