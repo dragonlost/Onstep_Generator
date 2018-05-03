@@ -720,7 +720,7 @@
             <item row="3" column="2">
              <widget class="QSpinBox" name="axis1_motor_spin">
               <property name="maximum">
-               <number>1000</number>
+               <number>100000</number>
               </property>
               <property name="value">
                <number>200</number>
@@ -730,7 +730,7 @@
             <item row="3" column="1">
              <widget class="QSpinBox" name="axis2_motor_spin">
               <property name="maximum">
-               <number>1000</number>
+               <number>100000</number>
               </property>
               <property name="value">
                <number>200</number>
@@ -1105,14 +1105,23 @@
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QSpinBox" name="spinBox">
+           <widget class="QSpinBox" name="rot_step_spinBox">
             <property name="enabled">
              <bool>false</bool>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>100000</number>
+            </property>
+            <property name="value">
+             <number>200</number>
             </property>
            </widget>
           </item>
           <item row="9" column="1">
-           <widget class="QComboBox" name="comboBox">
+           <widget class="QComboBox" name="rot_di_comboBox">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -1134,7 +1143,7 @@
            </widget>
           </item>
           <item row="9" column="2">
-           <widget class="QComboBox" name="comboBox_2">
+           <widget class="QComboBox" name="focus1_di_comboBox">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -1156,7 +1165,7 @@
            </widget>
           </item>
           <item row="9" column="3">
-           <widget class="QComboBox" name="comboBox_3">
+           <widget class="QComboBox" name="focus2_di_comboBox">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -1202,9 +1211,9 @@
              <property name="geometry">
               <rect>
                <x>0</x>
-               <y>0</y>
+               <y>-559</y>
                <width>596</width>
-               <height>923</height>
+               <height>983</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -1329,6 +1338,121 @@
                </layout>
               </item>
               <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_24">
+                <item>
+                 <widget class="QLabel" name="label_45">
+                  <property name="text">
+                   <string>Serial 4 Baud (bit/s):</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="serial4_baud_comboBox">
+                  <property name="currentIndex">
+                   <number>10</number>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>75</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>110</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>134.5</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>150</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>600</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>1200</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>1800</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>2400</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>4800</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>7200</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>9600</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>14400</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>19200</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>38400</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>56000</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>57600</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>115200</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>128000</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="esp_checkBox">
+                <property name="text">
+                 <string>ESP Control (Upload, reset,...)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <layout class="QHBoxLayout" name="horizontalLayout_4">
                 <property name="spacing">
                  <number>6</number>
@@ -1418,13 +1542,6 @@
                <widget class="QCheckBox" name="goto_assist_checkBox">
                 <property name="text">
                  <string>Align Goto Assist</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_2">
-                <property name="text">
-                 <string>PEC Control</string>
                 </property>
                </widget>
               </item>
@@ -1566,19 +1683,6 @@
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_9">
                 <item>
-                 <spacer name="horizontalSpacer_6">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
                  <widget class="QLabel" name="label_44">
                   <property name="text">
                    <string>RTC :</string>
@@ -1630,59 +1734,37 @@
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_22">
                 <item>
-                 <spacer name="horizontalSpacer_18">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <widget class="QLabel" name="label_46">
+                 <widget class="QCheckBox" name="pps_checkBox">
                   <property name="text">
-                   <string>PPS :</string>
+                   <string>PPS</string>
                   </property>
-                 </widget>
-                </item>
-                <item>
-                 <spacer name="horizontalSpacer_17">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="pps_combo">
-                  <item>
-                   <property name="text">
-                    <string>OFF</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>ON</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>PULLUP</string>
-                   </property>
-                  </item>
                  </widget>
                 </item>
                 <item>
                  <spacer name="horizontalSpacer_19">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="pps_pul_checkBox">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="text">
+                   <string>Pullup</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_6">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
@@ -1777,9 +1859,35 @@
                  </spacer>
                 </item>
                 <item>
-                 <widget class="QCheckBox" name="reticule_checkBox">
+                 <widget class="QSpinBox" name="intensity_led2_spinBox">
                   <property name="enabled">
                    <bool>false</bool>
+                  </property>
+                  <property name="maximum">
+                   <number>255</number>
+                  </property>
+                  <property name="value">
+                   <number>255</number>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_17">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="reticule_checkBox">
+                  <property name="enabled">
+                   <bool>true</bool>
                   </property>
                   <property name="text">
                    <string>Reticule LED</string>
@@ -1787,7 +1895,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QSpinBox" name="intensity_led_spinBox">
+                 <widget class="QSpinBox" name="intensity_ret_spinBox">
                   <property name="enabled">
                    <bool>false</bool>
                   </property>
@@ -1847,7 +1955,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="buzzer_tpe_comboBox">
+                 <widget class="QComboBox" name="buzzer_type_comboBox">
                   <property name="enabled">
                    <bool>false</bool>
                   </property>
@@ -1955,6 +2063,13 @@
                <widget class="QCheckBox" name="atmos_checkBox">
                 <property name="text">
                  <string>Traking compensation for atmospheric refaction</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="save_mer_flip_checkBox">
+                <property name="text">
+                 <string>Remember Auto Meridian Flip</string>
                 </property>
                </widget>
               </item>
@@ -2445,12 +2560,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>166</x>
-     <y>433</y>
+     <x>179</x>
+     <y>459</y>
     </hint>
     <hint type="destinationlabel">
      <x>417</x>
-     <y>432</y>
+     <y>461</y>
     </hint>
    </hints>
   </connection>
@@ -2461,44 +2576,28 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>150</x>
-     <y>433</y>
+     <x>163</x>
+     <y>459</y>
     </hint>
     <hint type="destinationlabel">
      <x>607</x>
-     <y>432</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>state_led2_checkBox</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>reticule_checkBox</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>133</x>
-     <y>525</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>402</x>
-     <y>525</y>
+     <y>460</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>reticule_checkBox</sender>
    <signal>clicked(bool)</signal>
-   <receiver>intensity_led_spinBox</receiver>
+   <receiver>intensity_ret_spinBox</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>402</x>
-     <y>525</y>
+     <y>551</y>
     </hint>
     <hint type="destinationlabel">
-     <x>465</x>
-     <y>524</y>
+     <x>533</x>
+     <y>553</y>
     </hint>
    </hints>
   </connection>
@@ -2775,25 +2874,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>reticule_checkBox</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>state_led2_checkBox</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>402</x>
-     <y>525</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>142</x>
-     <y>525</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>rot_checkBox</sender>
    <signal>clicked(bool)</signal>
-   <receiver>spinBox</receiver>
+   <receiver>rot_step_spinBox</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2814,11 +2897,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>83</x>
-     <y>172</y>
+     <y>200</y>
     </hint>
     <hint type="destinationlabel">
      <x>239</x>
-     <y>172</y>
+     <y>200</y>
     </hint>
    </hints>
   </connection>
@@ -2830,11 +2913,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>83</x>
-     <y>172</y>
+     <y>200</y>
     </hint>
     <hint type="destinationlabel">
      <x>438</x>
-     <y>171</y>
+     <y>202</y>
     </hint>
    </hints>
   </connection>
@@ -2845,12 +2928,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>82</x>
-     <y>172</y>
+     <x>83</x>
+     <y>200</y>
     </hint>
     <hint type="destinationlabel">
      <x>526</x>
-     <y>171</y>
+     <y>202</y>
     </hint>
    </hints>
   </connection>
@@ -2861,12 +2944,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>70</x>
-     <y>272</y>
+     <x>81</x>
+     <y>300</y>
     </hint>
     <hint type="destinationlabel">
      <x>206</x>
-     <y>272</y>
+     <y>300</y>
     </hint>
    </hints>
   </connection>
@@ -2878,11 +2961,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>81</x>
-     <y>272</y>
+     <y>300</y>
     </hint>
     <hint type="destinationlabel">
      <x>385</x>
-     <y>272</y>
+     <y>300</y>
     </hint>
    </hints>
   </connection>
@@ -2894,11 +2977,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>81</x>
-     <y>272</y>
+     <y>300</y>
     </hint>
     <hint type="destinationlabel">
      <x>557</x>
-     <y>272</y>
+     <y>300</y>
     </hint>
    </hints>
   </connection>
@@ -2909,28 +2992,28 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>75</x>
-     <y>559</y>
+     <x>88</x>
+     <y>585</y>
     </hint>
     <hint type="destinationlabel">
      <x>333</x>
-     <y>558</y>
+     <y>586</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>buzzer_checkBox</sender>
    <signal>clicked(bool)</signal>
-   <receiver>buzzer_tpe_comboBox</receiver>
+   <receiver>buzzer_type_comboBox</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>88</x>
-     <y>559</y>
+     <x>101</x>
+     <y>585</y>
     </hint>
     <hint type="destinationlabel">
      <x>424</x>
-     <y>558</y>
+     <y>586</y>
     </hint>
    </hints>
   </connection>
@@ -2953,7 +3036,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>rot_checkBox</sender>
    <signal>clicked(bool)</signal>
-   <receiver>comboBox</receiver>
+   <receiver>rot_di_comboBox</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2969,7 +3052,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>focus1_checkBox</sender>
    <signal>clicked(bool)</signal>
-   <receiver>comboBox_2</receiver>
+   <receiver>focus1_di_comboBox</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2985,7 +3068,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>focus2_checkBox</sender>
    <signal>clicked(bool)</signal>
-   <receiver>comboBox_3</receiver>
+   <receiver>focus2_di_comboBox</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2995,6 +3078,38 @@ p, li { white-space: pre-wrap; }
     <hint type="destinationlabel">
      <x>574</x>
      <y>569</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>state_led2_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>intensity_led2_spinBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>543</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>237</x>
+     <y>541</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pps_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>pps_pul_checkBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>79</x>
+     <y>412</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>360</x>
+     <y>421</y>
     </hint>
    </hints>
   </connection>

@@ -12,17 +12,17 @@ def read_conf_file(path_name):
     for i in range(text.size) : text[i]=text[i].strip()
     # Convertion des variables (float32, int32, bool)
     
-    ff = [5,6,14,15,29,30,35,40,32,33,37,38,42,43,71,72]
-    ii = [26,24,39,46,48,56,58,63,66,73,75,76,77,78,79,80]
-    bb = [3,11,20,23,24,25,31,36,41,45,47,50,51,53,54,55,58,60,61,62,64,65,67,68,69,70,74,82,86]
-    ss = [0,1,4,7,8,7,9,10,12,13,16,17,18,19,21,22,27,28,44,49,52,57,59,81,83,84,85]
+    ff = [4,5,13,14,28,29,31,32,37,38,43,44,80,81]
+    ii = [2,6,15,25,26,34,35,40,41,51,59,64,69,71,74,82,84,85,86,87,88,89]
+    bol = [3,10,19,22,23,24,30,36,42,48,49,50,52,53,54,55,56,57,58,61,62,63,66,67,68,70,72,75,76,77,78,79,83]
+    ss = [0,1,7,8,9,11,12,16,17,18,20,21,27,33,39,45,46,47,60,65,73]
     
     for i in ff:
         text[ff] = np.float32(text[ff])
     for i in ii:
         text[ii] = np.int32(text[ii])
-    for i in bb:
-        text[bb] = np.bool(text[bb])
+    for i in bol:
+        text[bol] = np.bool(text[bol])
     
     
     file.close()
@@ -36,102 +36,105 @@ def test_config(path_read, path=os.getcwd()+'/config_'+time.strftime("%d_%Y_%H_%
     var = read_conf_file(path_read)
     
 
-    board_type = var[0]
-    mount_type = var[1]
-    max_rate = var[2]
-    pec_pul = var[3]
-    auto_sid = var[4]
+    board_type = var[0] #string
+    mount_type = var[1] #string
+    max_rate = var[2] #int
+    auto_sid = var[3] #bool
     
-    worm1 = var[5]
-    gear1 = var[6]
-    stepper1 = var[7]
-    micro1 = var[8] 
-    slew1 = var[9]
-    driver1 = var[10] 
-    reverse1 = var[11]
-    ena1 = var[12]
-    fault1 = var[13] 
+    worm1 = var[4] #float
+    gear1 = var[5] #float
+    stepper1 = var[6] #int
+    micro1 = var[7] #string
+    slew1 = var[8] #string
+    driver1 = var[9] #string
+    reverse1 = var[10] #bool
+    ena1 = var[11] #string
+    fault1 = var[12] #string
     
-    worm2 = var[14]
-    gear2 = var[15]
-    stepper2 = var[16] 
-    micro2 = var[17]
-    slew2 = var[18]
-    driver2 = var[19]
-    reverse2 = var[20]
-    ena2 = var[21]    
-    fault2 = var[22]
+    worm2 = var[13] #float
+    gear2 = var[14] #float
+    stepper2 = var[15] #int
+    micro2 = var[16] #string
+    slew2 = var[17] #string
+    driver2 = var[18] #string
+    reverse2 = var[19] #bool
+    ena2 = var[20] #string
+    fault2 = var[21] #string
     
-    rot3 = var[23] 
-    foc1 = var[24] 
-    foc2 = var[25]
+    rot3 = var[22] #bool
+    foc1 = var[23] #bool
+    foc2 = var[24] #bool
     
-    rot_rate = var[26]
-    rot_step = var[27]
-    rot_micro = var[28]
-    rot_gear = var[29]
-    rot_gear_2 = var[30] 
-    rot_reverse = var[31] 
-    rot_min_degr = var[32]
-    rot_max_degr = var[33]
+    rot_rate = var[25] #int
+    rot_step = var[26] #int
+    rot_micro = var[27] #string
+    rot_gear = var[28] #float
+    rot_gear_2 = var[29] #float
+    rot_reverse = var[30] #bool
+    rot_min_degr = var[31] #float
+    rot_max_degr = var[32] #float
+    rot_disable = var[33] #string
     
-    foc1_rate = var[34]
-    foc1_ratio = var[35] 
-    foc1_reverse = var[36] 
-    foc1_min_mm = var[37] 
-    foc1_max_mm = var[38]
+    foc1_rate = var[34] #int
+    foc1_ratio = var[35] #int
+    foc1_reverse = var[36] #bool
+    foc1_min_mm = var[37] #float
+    foc1_max_mm = var[38] #float
+    focus1_disable = var[39] #string
     
-    foc2_rate = var[39]
-    foc2_ratio = var[40]
-    foc2_reverse = var[41] 
-    foc2_min_mm = var[42]
-    foc2_max_mm = var[43] 
+    foc2_rate = var[40] #int
+    foc2_ratio = var[41] #int
+    foc2_reverse = var[42] #bool
+    foc2_min_mm = var[43] #float
+    foc2_max_mm = var[44] #float
+    focus2_disable = var[45] #string
     
-    baud = var[44]
-    pec = var[45] 
-    pec_buffer = var[46] 
-    pec_set = var[47]
-    analog_pec = var[48] 
-    pec_logic = var[49] 
-    goto_assist = var[50] 
-    strict_park = var[51]
-    st4 = var[52]
-    alt_st4 = var[53]
-    hand = var[54]
-    pulse = var[55]
-    guide_time = var[56]
-    rtc = var[57]
-    mem_flip_mer=var[58]
-    pps = var[59]
-    limit = var[60] 
-    led1 = var[61]
-    reticule = var[62] 
-    led_intensity = var[63]
-    led2 = var[64]
-    buzzer = var[65]
-    freq_sound = var[66] 
-    def_sound = var[67] 
-    atmos = var[68]
-    home_pause = var[69] 
-    mem_max_rate = var[70]
-    accel = var[71]
-    rapid_stop = var[72] 
-    backlash = var[73]
-    off_axis = var[74] 
-    degre_e = var[75] 
-    degre_w = var[76] 
-    min_dec = var[77]
-    max_dec = var[78]
-    pol_limit = var[79] 
-    max_az = var[80]
+    baud = var[46] #string
+    baud4 = var[47] #string
+    esp = var[48] #bool
+    pec = var[49] #bool
+    pec_pul = var[50] #bool
+    pec_buffer = var[51] #int
+    goto_assist = var[52] #bool
+    strict_park = var[53] #bool
+    st4 = var[54] #bool
+    st4_pul = var[55] #bool
+    alt_st4 = var[56] #bool
+    hand = var[57] #bool
+    pulse = var[58] #bool
+    guide_time = var[59] #int
+    rtc = var[60] #string
+    pps = var[61] #bool
+    pps_pul = var[62] #bool
+    pec_set = var[63] #bool
+    analog_pec = var[64] #int
+    pec_logic = var[65] #string
+    limit = var[66] #bool
+    led1 = var[67] #bool
+    led2 = var[68] #bool
+    led2_intensity = var[69] #int
+    reticule = var[70] #bool
+    ret_intensity = var[71] #int
+    buzzer = var[72] #bool
+    buzzer_type = var[73] #string
+    freq_sound = var[74] #int
+    def_sound = var[75] #bool
+    atmos = var[76] #bool
+    mem_flip_mer = var[77] #bool 
+    home_pause = var[78] #bool
+    mem_max_rate = var[79] #bool
+    accel = var[80] #float
+    rapid_stop = var[81] #float
+    backlash = var[82] #int
+    off_axis2 = var[83] #bool
+    degre_e = var[84] #int
+    degre_w = var[85] #int
+    min_dec = var[86] #int
+    max_dec = var[87] #int
+    pol_limit = var[88] #int
+    max_az = var[89] #int
     
-    buzzer_type = var[81]
-    esp_8266 = var[82]
-    rot_disable = var[83]
-    focus1_disable = var[84]
-    focus2_disable = var[85]
-    st4_pull = var[86]
-
+    
     ####__________________Axis1_____________________________
     # Axis1 reverse
     if reverse1:
@@ -268,10 +271,10 @@ def test_config(path_read, path=os.getcwd()+'/config_'+time.strftime("%d_%Y_%H_%
         assist="OFF"
         
     # ESP8266 Control
-    if esp_8266:
-        esp="ON"
+    if esp:
+        esp_s="ON"
     else:
-        esp="OFF"
+        esp_s="OFF"
         
     # Strict Parking
     if strict_park:
@@ -279,18 +282,10 @@ def test_config(path_read, path=os.getcwd()+'/config_'+time.strftime("%d_%Y_%H_%
     else:
         s_park="OFF"
         
-    # ST4
-    if st4:
-        s_st4="ON"
-    else:
-        s_st4="OFF"
         
     # alternative st4
     if alt_st4:
-        if st4_pull:
-            a_st4="PULLUP"
-        else:
-            a_st4="ON"
+        a_st4="ON"
     else:
         a_st4="OFF"    
 
@@ -348,14 +343,9 @@ def test_config(path_read, path=os.getcwd()+'/config_'+time.strftime("%d_%Y_%H_%
     else:
         s_led1="OFF"
         
-    # Led 2  status    
-    if led2:
-        s_led2="ON"
-    else:
-        s_led2="OFF"
         
     # Off Axis 2 at time limit    
-    if off_axis:
+    if off_axis2:
         off2="ON"
     else:
         off2="OFF"
@@ -412,12 +402,12 @@ def test_config(path_read, path=os.getcwd()+'/config_'+time.strftime("%d_%Y_%H_%
     config_file.write("#define SERIAL1_BAUD_DEFAULT "+np.str(baud))
                       
     if board =="MaxPCB":
-        config_file.write("#define SERIAL4_BAUD_DEFAULT "+np.str(baud))
+        config_file.write("#define SERIAL4_BAUD_DEFAULT "+np.str(baud4))
                           
     config_file.write("")
     config_file.write("// ESP8266 reset and GPIO0 control, this sets run mode for normal operation.  Uploading programmer firmware to the OpStep MCU can then enable sending new firmware to the ESP8266-01")
     config_file.write("// Pin 18 (Aux1) for GPIO0 and Pin 5 (Aux2) for Rst control.  Choose only one feature on Aux1/2.")
-    config_file.write("#define ESP8266_CONTROL_"+esp)
+    config_file.write("#define ESP8266_CONTROL_"+esp_s)
     config_file.write("")
     config_file.write("// Mount type, default is _GEM (German Equatorial) other options are _FORK, _FORK_ALT.  _FORK switches off Meridian Flips after (1, 2 or 3 star) alignment is done.  _FORK_ALT disables Meridian Flips (1 star align.)")
     config_file.write("// _ALTAZM is for Alt/Azm mounted 'scopes (1 star align only.)")
@@ -429,7 +419,17 @@ def test_config(path_read, path=os.getcwd()+'/config_'+time.strftime("%d_%Y_%H_%
     config_file.write("// ST4 interface on pins 24, 25, 26, 27.  Pin 24 is RA- (West), Pin 25 is Dec- (South), Pin 26 is Dec+ (North), Pin 27 is RA+ (East.)")
     config_file.write("// ST4_ON enables the interface.  ST4_PULLUP enables the interface and any internal pullup resistors.")
     config_file.write("// It is up to you to create an interface that meets the electrical specifications of any connected device, use at your own risk.  default=_OFF")
-    config_file.write("#define ST4_"+s_st4)
+    
+    
+    if st4:
+        if st4_pul:
+            config_file.write("#define ST4_PULLUP")
+        else:
+            config_file.write("#define ST4_ON")
+    else:
+        config_file.write("#define ST4_OFF")
+    
+                      
     config_file.write("// If SEPARATE_PULSE_GUIDE_RATE_ON is used the ST4 port is limited to guide rates <= 1X except when ST4_HAND_CONTROL_ON is used.")
     config_file.write("// Additionally, ST4_HAND_CONTROL_ON enables special features: Press and hold [E]+[W] buttons for > 2 seconds...  In this mode [E] decreases and [W] increases guide rates (or if tracking isn't on yet adjusts illuminated recticule brightness.)")
     config_file.write("// [S] for Sync (or Accept if in align mode.) [N] for Tracking on/off. -OR- Press and hold [N]+[S] buttons for > 2 seconds...  In this mode [E] selects prior and [W] next user catalog item.")
@@ -454,11 +454,18 @@ def test_config(path_read, path=os.getcwd()+'/config_'+time.strftime("%d_%Y_%H_%
     config_file.write("// Other options: RTC_DS3234 for a DS3234 on the default SPI interface pins (CS on pin 10) or RTC_DS3231 for a DS3231 on the default I2C pins (optionally wire the SQW output to the PPS pin below.)")
     config_file.write("#define RTC_"+rtc)
     config_file.write("// PPS use _ON or _PULLUP to enable the input and use the built-in pullup resistor.  Sense rising edge on Pin 28 for optional precision clock source (GPS, for example), default=_OFF")
-    config_file.write("#define PPS_SENSE_"+pps)
+    
+    if pps:
+        if pps_pul:
+            config_file.write("#define PPS_SENSE_PULLUP")
+        else:
+            config_file.write("#define PPS_SENSE_ON")
+    else:
+        config_file.write("#define PPS_SENSE_OFF")
+    
+                      
     config_file.write("// Note: The MaxPCB has a DS3234 connector")
     config_file.write("")
-    pec_set = var[47]
-    analog_pec = var[48] 
     config_file.write("// PEC sense on Pin 23 (A9) use _ON or _PULLUP to enable the input/use the built-in pullup resistor (digital input) or provide a comparison value (see below) for analog operation, default=_OFF")
     config_file.write("// Analog values range from 0 to 1023 which indicate voltages from 0-3.3VDC on the analog pin, for example \"PEC_SENSE 600\" would detect an index when the voltage exceeds 1.93V")
     config_file.write("// With either index detection method, once triggered 60s must expire before another detection can happen.  This gives time for the index magnet to pass by the detector before another cycle begins.")
@@ -474,7 +481,6 @@ def test_config(path_read, path=os.getcwd()+'/config_'+time.strftime("%d_%Y_%H_%
     else:
         config_file.write("#define PEC_SENSE_OFF")
                           
-    config_file.write("#define PEC_SENSE_"+pec)
     config_file.write("// PEC sense, rising edge (default with PEC_SENSE_STATE HIGH, use LOW for falling edge, ex. PEC_SENSE_ON) ; for optional PEC index")
     config_file.write("#define PEC_SENSE_STATE "+pec_logic)
     config_file.write("")
@@ -486,12 +492,21 @@ def test_config(path_read, path=os.getcwd()+'/config_'+time.strftime("%d_%Y_%H_%
     config_file.write("#define STATUS_LED_PINS_"+s_led1)
     config_file.write("// Light 2nd status LED by sink to ground (Pin 22), default=_OFF.")
     config_file.write("// _ON sets this to blink at 1 sec intervals when PPS is synced.  Turns off if tracking is stopped.  Turns on during gotos.")
-    config_file.write("#define STATUS_LED2_PINS_"+s_led2)
+    
+    if led2:
+        if led2_intensity!=0:
+            config_file.write("#define STATUS_LED2_PINS "+np.str(led2_intensity))
+        else:
+            config_file.write("#define STATUS_LED2_PINS_ON")
+    else:
+        config_file.write("#define STATUS_LED2_PINS_OFF")
+
+
     config_file.write("// Light reticule LED by sink to ground (Pin 22), default=_OFF.  (don't use with STATUS_LED2_PINS_ON)")
     config_file.write("// RETICULE_LED_PINS n, where n=0 to 255 activates this feature and sets default brightness")
     
     if reticule:
-        config_file.write("#define RETICULE_LED_PINS "+np.str(led_intensity))
+        config_file.write("#define RETICULE_LED_PINS "+np.str(ret_intensity))
     else:
         config_file.write("#define RETICULE_LED_PINS_OFF")
     
