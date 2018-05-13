@@ -301,7 +301,7 @@ def onstep_config(path_read, path=""):
     
 
     if path == "":
-        config_file = open("Config"+board+".h","w")
+        config_file = open("Config."+board+".h","w")
         
     else:
         config_file = open(path,"w")
