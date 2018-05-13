@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/developpeur/github/Onstep_Generator/configurator.ui'
+# Form implementation generated from reading ui file 'configurator.ui'
 #
 # Created by: PyQt5 UI code generator 5.6
 #
@@ -488,7 +488,7 @@ class Ui_configurator(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, -559, 596, 983))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, -364, 601, 896))
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_3.setContentsMargins(11, 11, 11, 11)
@@ -973,6 +973,9 @@ class Ui_configurator(object):
         self.horizontalLayout_6.setContentsMargins(11, 11, 11, 11)
         self.horizontalLayout_6.setSpacing(6)
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
+        self.label_46 = QtWidgets.QLabel(self.centralWidget)
+        self.label_46.setObjectName("label_46")
+        self.horizontalLayout_6.addWidget(self.label_46)
         self.path_line = QtWidgets.QLineEdit(self.centralWidget)
         self.path_line.setObjectName("path_line")
         self.horizontalLayout_6.addWidget(self.path_line)
@@ -991,7 +994,7 @@ class Ui_configurator(object):
         self.verticalLayout_2.addWidget(self.buttonBox)
         configurator.setCentralWidget(self.centralWidget)
         self.menuBar = QtWidgets.QMenuBar(configurator)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 654, 22))
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 654, 21))
         self.menuBar.setObjectName("menuBar")
         self.menuOnStep_Configurator = QtWidgets.QMenu(self.menuBar)
         self.menuOnStep_Configurator.setObjectName("menuOnStep_Configurator")
@@ -1278,6 +1281,7 @@ class Ui_configurator(object):
         self.upload_pushButton.setText(_translate("configurator", "Upload"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.arduino_tab), _translate("configurator", "Compile and Upload"))
         self.generate_buttom.setText(_translate("configurator", "Generate"))
+        self.label_46.setText(_translate("configurator", "Config Path (option) : "))
         self.path_button.setText(_translate("configurator", "..."))
         self.prompt_textbrowser.setHtml(_translate("configurator", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
