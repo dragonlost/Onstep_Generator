@@ -24,15 +24,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-        configurator.cpp
 
 HEADERS += \
-        configurator.h
 
 FORMS += \
-        configurator.ui \
-    about.ui \
-    groupbox.ui
+        configurator.ui
+
 
 DISTFILES +=
