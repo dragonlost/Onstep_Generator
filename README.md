@@ -19,15 +19,15 @@ Two methods :
 
 Need install Python 3, 
 * for Windows -->  https://www.python.org/ftp/python/3.6.5/python-3.6.5-amd64.exe 
-* for Linux   --> sudo apt install python3-dev or Anaconda/Miniconda 3
+* for Linux   --><h1>sudo apt install python3-dev</h1> or Anaconda/Miniconda 3
                      
 And need add librairis : sip and pyQt5
 
-For __Linux__ (in Shell): pip install sip
-                      pip install pyQt5
+* For __Linux__ (in Shell): <h1>pip install sip<\h1>
+                            <h1>pip install pyQt5<\h1>
 
-For __Windows__ (in CMD in Admin): pip install sip
-                               pip install pyQt5
+* For __Windows__ (in CMD in Admin): <h1>pip install sip<\h1>
+                                     <h1>pip install pyQt5<\h1>
 
-Go in Onstep Generator Folder (via command "cd")    
-Run : python main.py  (in CMD or Shell)
+Go in Onstep Generator Folder (via command <h1>cd<\h1>)    
+Run : <h1>python main.py<\h1>  (in CMD or Shell)
