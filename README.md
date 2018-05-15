@@ -12,12 +12,15 @@ Executable is compatible with __Windows__ and __Linux__ (__MacOS__ *ToDo...*).
 __Two methods :__
 
 ----
+
 ### Executable :
 
 * For __Windows__ --> [Windows](https://github.com/dragonlost/Onstep_Generator/raw/master/executable/OnStep_Generator_Linux64_vB0.6.zip)
 * For __Linux__ --> [Linux](https://github.com/dragonlost/Onstep_Generator/raw/master/executable/OnStep_Generator_Win64_vB0.6.zip)
 
 Unzip and Run Onstep_Generator
+
+----
 
 ### Python :
 
@@ -35,4 +38,5 @@ And need add librairis : sip and pyQt5
 
 Go in Onstep Generator Folder (via command `cd`)    
 Run : `python main.py`  (in CMD or Shell)
+
 -------------------------
