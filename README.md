@@ -19,6 +19,7 @@ For Linux -->
 ### Python :
 
 Need install Python 3, for Windows -->  https://www.python.org/ftp/python/3.6.5/python-3.6.5-amd64.exe
+                       
                        for Linux   --> sudo apt install python3-dev or Anaconda/Miniconda 3
                      
 And need add librairis : sip and pyQt5
