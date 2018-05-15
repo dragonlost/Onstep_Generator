@@ -54,6 +54,7 @@ Run : `python main.py`  (in CMD or Shell)
 * Add Warning for Low Tracking resolution ([xls file](http://www.stellarjourney.com/assets/downloads/OnStep-Calculations.xls))
 * Add Maximum slew rate update dynamically
 * Add Steps Per Degree update dynamically
+* Add option to generate without comment
 * *Add Possibility for upload OnStep code in controller (teensy and arduino in first time)* 
 
 -------------------------
