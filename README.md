@@ -48,10 +48,10 @@ Run : `python main.py`  (in CMD or Shell)
 ## Screen Capture 
 
 __Axis 1, Axis 2 and basic Configuration :__
-https://github.com/dragonlost/Onstep_Generator/raw/master/screen_capt/Onstep_Generator_menu1.png
+![](https://github.com/dragonlost/Onstep_Generator/raw/master/screen_capt/Onstep_Generator_menu1.png)
 
 __Axis 3 (focus1), Axis 4 (focus2) and Rotator configuration :__ (need add Axis 5 (focus3) for Ramps1.4).
-https://github.com/dragonlost/Onstep_Generator/raw/master/screen_capt/Onstep_Generator_menu2.png
+![](https://github.com/dragonlost/Onstep_Generator/raw/master/screen_capt/Onstep_Generator_menu2.png)
 
 __Advanced Configuration :__ 
-https://github.com/dragonlost/Onstep_Generator/raw/master/screen_capt/Onstep_Generator_menu3.png
+![](https://github.com/dragonlost/Onstep_Generator/raw/master/screen_capt/Onstep_Generator_menu3.png)
