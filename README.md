@@ -5,15 +5,15 @@ Programme for generate config file for Onstep program.
 ## Compatibility :
 Version Beta_0.6 of Generator is compatible with 15/05/2018 OnStep Alpha Version.
 
-Executable is compatible with Windows and Linux (MacOS ToDo...).
+Executable is compatible with __Windows__ and __Linux__ (__MacOS__ *ToDo...*).
 
 ## Installation :
 
 Two methods :
 ### Executable :
 
-* For __Windows__ --> [Windows](https://github.com/dragonlost/Onstep_Generator/blob/master/executable/OnStep_Generator_Linux64_vB0.6.zip)
-* For __Linux__ --> [Linux](https://github.com/dragonlost/Onstep_Generator/blob/master/executable/OnStep_Generator_Win64_vB0.6.zip)
+* For __Windows__ --> [Windows](https://github.com/dragonlost/Onstep_Generator/raw/master/executable/OnStep_Generator_Linux64_vB0.6.zip)
+* For __Linux__ --> [Linux](https://github.com/dragonlost/Onstep_Generator/raw/master/executable/OnStep_Generator_Win64_vB0.6.zip)
 
 Unzip and Run Onstep_Generator
 
