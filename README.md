@@ -6,7 +6,8 @@ Program generate config file for Onstep program.
 
 ## Compatibility :
 Version Beta_0.6 of Generator is compatible with 15/05/2018 OnStep Alpha Version.
-The default settings are the same as OnStep
+
+The default settings are the __same__ as OnStep
 
 Executable is compatible with __Windows__ and __Linux__ (__MacOS__ *ToDo...*).
 
