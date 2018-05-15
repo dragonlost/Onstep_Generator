@@ -49,8 +49,8 @@ Run : `python main.py`  (in CMD or Shell)
 ## ToDo :
 
 * Add MacOS executable version
-* Add Warning for low rate
-* Add Warning for low sTracking resolution([xls file](http://www.stellarjourney.com/assets/downloads/OnStep-Calculations.xls))
+* Add Warning for Low Rate
+* Add Warning for Low Tracking resolution ([xls file](http://www.stellarjourney.com/assets/downloads/OnStep-Calculations.xls))
 * Add Maximum slew rate update dynamically
 * Add Steps Per Degree update dynamically
 * *Add Possibility for upload OnStep code in controller (teensy and arduino in first time)* 
