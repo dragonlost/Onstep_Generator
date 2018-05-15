@@ -1,4 +1,4 @@
 
-For Linux :
-pyinstaller --onefile -y --clean --windowed --name Onstep_Generator --icon=./OnStep.ico main.py
+For Linux and Windows :
+pyinstaller --onefile -y --clean --windowed --name Onstep_Generator --icon=OnStep.ico main.py
 

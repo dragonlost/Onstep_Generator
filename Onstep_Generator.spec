@@ -4,9 +4,9 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['/home/sdurand/GIT/Onstep_Generator'],
+             pathex=['/home/developpeur/github/Onstep_Generator'],
              binaries=[],
-             datas=[],
+             datas=[('OnStep_Logo_Medium.png','.')],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
@@ -26,4 +26,4 @@ exe = EXE(pyz,
           strip=False,
           upx=True,
           runtime_tmpdir=None,
-          console=False , icon='./OnStep.ico')
+          console=False , icon='OnStep.ico')

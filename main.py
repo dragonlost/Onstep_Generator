@@ -2,7 +2,6 @@
 from PyQt5 import QtCore, QtWidgets
 from configurator import Ui_configurator
 import generator as gen
-import numpy as np
 
 
 class ShipHolderApplication(QtWidgets.QMainWindow):
@@ -371,7 +370,7 @@ class ShipHolderApplication(QtWidgets.QMainWindow):
         file = open(path_name,'w')
         
         for i in range(len(var)):
-            file.write(np.str(var[i])+"\n")
+            file.write(str(var[i])+"\n")
             
         file.close()
         

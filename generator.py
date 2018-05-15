@@ -1,8 +1,6 @@
 # test.py
 
 import time
-import os
-import numpy as np
 
 version = "BETA_0.6"
 
@@ -10,9 +8,8 @@ def read_conf_file(path_name):
     file = open(path_name,'r')
     
     text = file.readlines()
-    text = np.array(text)
-    for i in range(text.size) : text[i]=text[i].strip()
-    # Convertion des variables (float32, int32, bool)
+    for i in range(len(text)) : text[i]=text[i].strip()
+    # Convertion des variables (float, int, bool)
     
     ff = [4,5,13,14,28,29,31,32,35,37,38,41,43,44,80,81]
     ii = [2,6,15,25,26,34,40,51,59,64,69,71,74,82,84,85,86,87,88,89]
@@ -36,16 +33,16 @@ def read_conf_file(path_name):
     for i in range(len(text)):
         
         if i in ff:
-            dico[var_str[i]] = np.float32(text[i])
+            dico[var_str[i]] = float(text[i])
             
         elif i in ii:
-            dico[var_str[i]] = np.int32(text[i])
+            dico[var_str[i]] = int(text[i])
             
         elif i in bol:
             dico[var_str[i]] = bool_convert(text[i])
             
         elif i in ss:
-            dico[var_str[i]] = np.str(text[i])
+            dico[var_str[i]] = str(text[i])
 
     file.close()
     
@@ -71,7 +68,7 @@ def onstep_config(path_read, path=""):
         rev1="ON"
     else:
         rev1="OFF"
-    step_degre_axis1 = dico["stepper1"] * np.int32(dico["micro1"]) * dico["worm1"] * (dico["gear1"]/360.)
+    step_degre_axis1 = dico["stepper1"] * int(dico["micro1"]) * dico["worm1"] * (dico["gear1"]/360.)
     
     # Driver Type Axis 1
     if dico["driver1"] == "A4988":
@@ -99,7 +96,7 @@ def onstep_config(path_read, path=""):
         rev2="ON"
     else:
         rev2="OFF"
-    step_degre_axis2 = dico["stepper2"] * np.int32(dico["micro2"]) * dico["worm2"] * (dico["gear2"]/360.) 
+    step_degre_axis2 = dico["stepper2"] * int(dico["micro2"]) * dico["worm2"] * (dico["gear2"]/360.) 
     
     # Driver Type Axis 2
     if dico["driver2"] == "A4988":
@@ -160,7 +157,7 @@ def onstep_config(path_read, path=""):
     else:
         rotator="OFF"
 
-    step_degre_rot = dico["rot_step"]  * np.float32(dico["rot_micro"]) * dico["rot_gear"] * (dico["rot_gear_2"]/360)
+    step_degre_rot = dico["rot_step"]  * int(dico["rot_micro"]) * dico["rot_gear"] * (dico["rot_gear_2"]/360)
     
     ####__________________OPTION_____________________________
     
@@ -379,7 +376,7 @@ def onstep_config(path_read, path=""):
     config_file.write("\n")
     config_file.write("// Guide time limit (in seconds,) default=0 (no limit.)  A safety feature, some guides are started with one command and stopped with another.\n")
     config_file.write("// If the stop command is never received the guide will continue forever unless this is enabled.\n")
-    config_file.write("#define GUIDE_TIME_LIMIT "+np.str(dico["guide_time"])+"\n")
+    config_file.write("#define GUIDE_TIME_LIMIT "+str(dico["guide_time"])+"\n")
     config_file.write("\n")
     config_file.write("// RTC (Real Time Clock) support, default=_OFF.\n")
     config_file.write("// Other options: RTC_DS3234 for a DS3234 on the default SPI interface pins (CS on pin 10) or RTC_DS3231 for a DS3231 on the default I2C pins (optionally wire the SQW output to the PPS pin below.)\n")
@@ -403,7 +400,7 @@ def onstep_config(path_read, path=""):
     config_file.write("// Ignored on Alt/Azm mounts.\n")
     if dico["pec"]:
         if (dico["pec_set"] and dico["analog_pec"]!=0):
-            config_file.write("#define PEC_SENSE "+np.str(dico["analog_pec"])+"\n")
+            config_file.write("#define PEC_SENSE "+str(dico["analog_pec"])+"\n")
         else:
             if dico["pec_pul"]:
                 config_file.write("#define PEC_SENSE_PULLUP\n")
@@ -426,7 +423,7 @@ def onstep_config(path_read, path=""):
     
     if dico["led2"]:
         if dico["led2_intensity"]!=0:
-            config_file.write("#define STATUS_LED2_PINS "+np.str(dico["led2_intensity"])+"\n")
+            config_file.write("#define STATUS_LED2_PINS "+str(dico["led2_intensity"])+"\n")
         else:
             config_file.write("#define STATUS_LED2_PINS_ON\n")
     else:
@@ -437,7 +434,7 @@ def onstep_config(path_read, path=""):
     config_file.write("// RETICULE_LED_PINS n, where n=0 to 255 activates this feature and sets default brightness\n")
     
     if dico["reticule"]:
-        config_file.write("#define RETICULE_LED_PINS "+np.str(dico["ret_intensity"])+"\n")
+        config_file.write("#define RETICULE_LED_PINS "+str(dico["ret_intensity"])+"\n")
     else:
         config_file.write("#define RETICULE_LED_PINS_OFF\n")
     
@@ -448,7 +445,7 @@ def onstep_config(path_read, path=""):
         if dico["buzzer_type"] == "Buzzer":
             config_file.write("#define BUZZER_ON\n")
         elif dico["buzzer_type"] == "Speaker":
-            config_file.write("#define BUZZER "+np.str(dico["freq_sound"])+" Hz\n")
+            config_file.write("#define BUZZER "+str(dico["freq_sound"])+" Hz\n")
     else:
         config_file.write("#define BUZZER_OFF\n")
                           
@@ -470,46 +467,46 @@ def onstep_config(path_read, path=""):
     config_file.write("\n")
     config_file.write("// ADJUST THE FOLLOWING TO MATCH YOUR MOUNT --------------------------------------------------------------------------------\n")
     config_file.write(" #define REMEMBER_MAX_RATE_"+mem_rate+"        // set to _ON and OnStep will remember rates set in the ASCOM driver, Android App, etc. default=_OFF \n")
-    config_file.write(" #define MaxRate                   "+np.str(dico["max_rate"])+" // microseconds per microstep default setting for gotos, can be adjusted for two times lower or higher at run-time\n")
+    config_file.write(" #define MaxRate                   "+str(dico["max_rate"])+" // microseconds per microstep default setting for gotos, can be adjusted for two times lower or higher at run-time\n")
     config_file.write("                                     // minimum* (fastest goto) is around 12 (Teensy3.5,) 4 (Teensy3.6,) default=96 higher is ok\n")
     config_file.write("                                     // * = minimum can be lower, when both AXIS1/AXIS2_MICROSTEPS are used the compiler will warn you if it's too low\n")
     config_file.write("\n")
-    config_file.write("#define DegreesForAcceleration   "+np.str(dico["accel"])+" // approximate number of degrees for full acceleration or deceleration: higher values=longer acceleration/deceleration\n")
+    config_file.write("#define DegreesForAcceleration   "+str(dico["accel"])+" // approximate number of degrees for full acceleration or deceleration: higher values=longer acceleration/deceleration\n")
     config_file.write("                                     // Default=5.0, too low (about <1) can cause gotos to never end if micro-step mode switching is enabled.\n")
-    config_file.write("#define DegreesForRapidStop      "+np.str(dico["rapid_stop"])+" // approximate number of degrees required to stop when requested or if limit is exceeded during a slew: higher values=longer deceleration\n")
+    config_file.write("#define DegreesForRapidStop      "+str(dico["rapid_stop"])+" // approximate number of degrees required to stop when requested or if limit is exceeded during a slew: higher values=longer deceleration\n")
     config_file.write("                                     // Default=1.0, too low (about <1) can cause gotos to never end if micro-step mode switching is enabled.\n")
     config_file.write("\n")
-    config_file.write("#define BacklashTakeupRate        "+np.str(dico["backlash"])+" // backlash takeup rate (in multipules of the sidereal rate): too fast and your motors will stall,\n")
+    config_file.write("#define BacklashTakeupRate        "+str(dico["backlash"])+" // backlash takeup rate (in multipules of the sidereal rate): too fast and your motors will stall,\n")
     config_file.write("                                     // too slow and the mount will be sluggish while it moves through the backlash\n")
     config_file.write("                                     // for the most part this doesn't need to be changed, but adjust when needed.  Default=25\n")
     config_file.write("\n")
     config_file.write("                                     // Axis1 is for RA/Az\n")
-    config_file.write("#define StepsPerDegreeAxis1  "+np.str(step_degre_axis1)+" // calculated as    :  stepper_steps * micro_steps * gear_reduction1 * (gear_reduction2/360)\n")
+    config_file.write("#define StepsPerDegreeAxis1  "+str(step_degre_axis1)+" // calculated as    :  stepper_steps * micro_steps * gear_reduction1 * (gear_reduction2/360)\n")
     config_file.write("                                     // G11              :  400           * 32          * 1               *  360/360              = 12800\n")
     config_file.write("                                     // Axis2 is for Dec/Alt\n")
-    config_file.write("#define StepsPerDegreeAxis2  "+np.str(step_degre_axis2)+" // calculated as    :  stepper_steps * micro_steps * gear_reduction1 * (gear_reduction2/360)\n")
+    config_file.write("#define StepsPerDegreeAxis2  "+str(step_degre_axis2)+" // calculated as    :  stepper_steps * micro_steps * gear_reduction1 * (gear_reduction2/360)\n")
     config_file.write("                                     // G11              :  400           * 32          * 1               *  360/360              = 12800\n")
     config_file.write("\n")
     config_file.write("                                     // PEC, number of steps for a complete worm rotation (in RA), (StepsPerDegreeAxis1*360)/gear_reduction2.  Ignored on Alt/Azm mounts.\n")
-    config_file.write("#define StepsPerWormRotationAxis1 "+np.str(np.int32(step_degre_axis1))+"L\n")
+    config_file.write("#define StepsPerWormRotationAxis1 "+str(int(step_degre_axis1))+"L\n")
     config_file.write("                                     // G11              : (12800*360)/360 = 12800\n")
     config_file.write("\n")
-    config_file.write("#define PECBufferSize           "+np.str(dico["pec_buffer"])+"  // PEC, buffer size, max should be no more than 3384, your required buffer size >= StepsPerAxis1WormRotation/(StepsPerDegeeAxis1/240)\n")
+    config_file.write("#define PECBufferSize           "+str(dico["pec_buffer"])+"  // PEC, buffer size, max should be no more than 3384, your required buffer size >= StepsPerAxis1WormRotation/(StepsPerDegeeAxis1/240)\n")
     config_file.write("                                     // for the most part this doesn't need to be changed, but adjust when needed.  824 seconds is the default.  Ignored on Alt/Azm mounts.\n")
     config_file.write("\n")
-    config_file.write("#define MinutesPastMeridianE      "+np.str(dico["degre_e"])+" // for goto's, how far past the meridian to allow before we do a flip (if on the East side of the pier) - a half hour of RA is the default = 30.  Sometimes used for Fork mounts in Align mode.  Ignored on Alt/Azm mounts.\n")
-    config_file.write("#define MinutesPastMeridianW      "+np.str(dico["degre_w"])+" // as above, if on the West side of the pier.  If left alone, the mount will stop tracking when it hits the this limit.  Sometimes used for Fork mounts in Align mode.  Ignored on Alt/Azm mounts.\n")
+    config_file.write("#define MinutesPastMeridianE      "+str(dico["degre_e"])+" // for goto's, how far past the meridian to allow before we do a flip (if on the East side of the pier) - a half hour of RA is the default = 30.  Sometimes used for Fork mounts in Align mode.  Ignored on Alt/Azm mounts.\n")
+    config_file.write("#define MinutesPastMeridianW      "+str(dico["degre_w"])+" // as above, if on the West side of the pier.  If left alone, the mount will stop tracking when it hits the this limit.  Sometimes used for Fork mounts in Align mode.  Ignored on Alt/Azm mounts.\n")
     config_file.write("                                     // The above two lines can be removed and settings in EEPROM will be used instead, be sure to set the Meridian limits in control software if you do this!\n")
     config_file.write("                                     // If you don't remove these lines Meridian limits will return to these defaults on power up.\n")
-    config_file.write("#define UnderPoleLimit            "+np.str(dico["pol_limit"])+" // maximum allowed hour angle (+/-) under the celestial pole.  Default=12.  Ignored on Alt/Azm mounts.\n")
+    config_file.write("#define UnderPoleLimit            "+str(dico["pol_limit"])+" // maximum allowed hour angle (+/-) under the celestial pole.  Default=12.  Ignored on Alt/Azm mounts.\n")
     config_file.write("                                     // If left alone, the mount will stop tracking when it hits this limit.  Valid range is 10 to 12 hours.\n")
-    config_file.write("#define MinDec                   "+np.str(dico["min_dec"])+" // minimum allowed declination, default = -91 (off)  Ignored on Alt/Azm mounts.\n")
-    config_file.write("#define MaxDec                   "+np.str(dico["max_dec"])+" // maximum allowed declination, default =  91 (off)  Ignored on Alt/Azm mounts.\n")
+    config_file.write("#define MinDec                   "+str(dico["min_dec"])+" // minimum allowed declination, default = -91 (off)  Ignored on Alt/Azm mounts.\n")
+    config_file.write("#define MaxDec                   "+str(dico["max_dec"])+" // maximum allowed declination, default =  91 (off)  Ignored on Alt/Azm mounts.\n")
     config_file.write("                                     // For example, a value of +80 would stop gotos/tracking near the north celestial pole.\n")
     config_file.write("                                     // For a Northern Hemisphere user, this would stop tracking when the mount is in the polar home position but\n")
     config_file.write("                                     // that can be easily worked around by doing an alignment once and saving a park position (assuming a \n")
     config_file.write("                                     // fork/yolk mount with meridian flips turned off by setting the minutesPastMeridian values to cover the whole sky)\n")
-    config_file.write("#define MaxAzm                   "+np.str(dico["max_az"])+" // Alt/Az mounts only. +/- maximum allowed Azimuth, default =  180.  Allowed range is 180 to 360\n")
+    config_file.write("#define MaxAzm                   "+str(dico["max_az"])+" // Alt/Az mounts only. +/- maximum allowed Azimuth, default =  180.  Allowed range is 180 to 360\n")
     config_file.write("\n")
     config_file.write("// AXIS1/2 STEPPER DRIVER CONTROL ------------------------------------------------------------------------------------------\n")
     config_file.write("// Axis1: Pins 20,21 = Step,Dir (RA/Azm)\n")
@@ -576,13 +573,13 @@ def onstep_config(path_read, path=""):
     config_file.write("// FOCUSER ROTATOR OR ALT/AZ DE-ROTATION ----------------------------------------------------------------------------------\n")
     config_file.write("// Pins 30,33 = Step,Dir (choose either this option or the second focuser, not both)\n")
     config_file.write("#define ROTATOR_"+rotator+"                  // enable or disable rotator feature (for any mount type,) default=_OFF (de-rotator is available only for MOUNT_TYPE_ALTAZM.)\n")
-    config_file.write("#define MaxRateAxis3               "+np.str(dico["rot_rate"])+" // this is the minimum number of milli-seconds between micro-steps, default=8\n")
-    config_file.write("#define StepsPerDegreeAxis3     "+np.str(step_degre_rot)+" // calculated as    :  stepper_steps * micro_steps * gear_reduction1 * (gear_reduction2/360)\n")
+    config_file.write("#define MaxRateAxis3               "+str(dico["rot_rate"])+" // this is the minimum number of milli-seconds between micro-steps, default=8\n")
+    config_file.write("#define StepsPerDegreeAxis3     "+str(step_degre_rot)+" // calculated as    :  stepper_steps * micro_steps * gear_reduction1 * (gear_reduction2/360)\n")
     config_file.write("                                     // Rotator          :  24            * 8           * 20              *  6/360                = 64\n")
     config_file.write("                                     // For de-rotation of Alt/Az mounts a quick estimate of the required resolution (in StepsPerDegree)\n")
     config_file.write("                                     // would be an estimate of the circumference of the useful imaging circle in (pixels * 2)/360\n")
-    config_file.write("#define MinAxis3                "+np.str(dico["rot_min_degr"])+" // minimum allowed Axis3 rotator, default = -180\n")
-    config_file.write("#define MaxAxis3                 "+np.str(dico["rot_max_degr"])+" // maximum allowed Axis3 rotator, default =  180\n")
+    config_file.write("#define MinAxis3                "+str(dico["rot_min_degr"])+" // minimum allowed Axis3 rotator, default = -180\n")
+    config_file.write("#define MaxAxis3                 "+str(dico["rot_max_degr"])+" // maximum allowed Axis3 rotator, default =  180\n")
     config_file.write("#define AXIS3_REVERSE_"+rot_rev+"            // reverse the direction of Axis3 rotator movement\n")
     
     if dico["rot_disable"] == "OFF":
@@ -594,10 +591,10 @@ def onstep_config(path_read, path=""):
     config_file.write("// FOCUSER1 ---------------------------------------------------------------------------------------------------------------\n")
     config_file.write("// Pins 34,35 = Step,Dir\n")
     config_file.write("#define FOCUSER1_"+focus1+"                 // enable or disable focuser feature, default=_OFF\n")
-    config_file.write("#define MaxRateAxis4               "+np.str(dico["foc1_rate"])+" // this is the minimum number of milli-seconds between micro-steps, default=8\n")
-    config_file.write("#define StepsPerMicrometerAxis4  "+np.str(dico["foc1_ratio"])+" // figure this out by testing or other means\n")
-    config_file.write("#define MinAxis4               "+np.str(dico["foc1_min_mm"])+" // minimum allowed Axis4 position in millimeters, default = -25.0\n")
-    config_file.write("#define MaxAxis4                "+np.str(dico["foc1_max_mm"])+" // maximum allowed Axis4 position in millimeters, default =  25.0\n")
+    config_file.write("#define MaxRateAxis4               "+str(dico["foc1_rate"])+" // this is the minimum number of milli-seconds between micro-steps, default=8\n")
+    config_file.write("#define StepsPerMicrometerAxis4  "+str(dico["foc1_ratio"])+" // figure this out by testing or other means\n")
+    config_file.write("#define MinAxis4               "+str(dico["foc1_min_mm"])+" // minimum allowed Axis4 position in millimeters, default = -25.0\n")
+    config_file.write("#define MaxAxis4                "+str(dico["foc1_max_mm"])+" // maximum allowed Axis4 position in millimeters, default =  25.0\n")
     config_file.write("#define AXIS4_REVERSE_"+foc1_rev+"            // reverse the direction of Axis4 focuser movement\n")
     
     if dico["focus1_disable"] == "OFF":
@@ -611,10 +608,10 @@ def onstep_config(path_read, path=""):
         config_file.write("// FOCUSER2 ---------------------------------------------------------------------------------------------------------------\n")
         config_file.write("// Pins 30,33 = Step,Dir (choose either this option or the rotator, not both) \n")
         config_file.write("#define FOCUSER2_"+focus2+"                 // enable or disable focuser feature, default=_OFF\n")
-        config_file.write("#define MaxRateAxis5               "+np.str(dico["foc2_rate"])+" // this is the minimum number of milli-seconds between micro-steps, default=8\n")
-        config_file.write("#define StepsPerMicrometerAxis5  "+np.str(dico["foc2_ratio"])+" // figure this out by testing or other means\n")
-        config_file.write("#define MinAxis5               "+np.str(dico["foc2_min_mm"])+" // minimum allowed Axis5 position in millimeters, default = -25.0\n")
-        config_file.write("#define MaxAxis5                "+np.str(dico["foc2_max_mm"])+" // maximum allowed Axis5 position in millimeters, default =  25.0\n")
+        config_file.write("#define MaxRateAxis5               "+str(dico["foc2_rate"])+" // this is the minimum number of milli-seconds between micro-steps, default=8\n")
+        config_file.write("#define StepsPerMicrometerAxis5  "+str(dico["foc2_ratio"])+" // figure this out by testing or other means\n")
+        config_file.write("#define MinAxis5               "+str(dico["foc2_min_mm"])+" // minimum allowed Axis5 position in millimeters, default = -25.0\n")
+        config_file.write("#define MaxAxis5                "+str(dico["foc2_max_mm"])+" // maximum allowed Axis5 position in millimeters, default =  25.0\n")
         config_file.write("#define AXIS5_REVERSE_"+foc2_rev+"            // reverse the direction of Axis5 focuser movement\n")
         
         if dico["focus2_disable"] == "OFF":                  
