@@ -51,6 +51,7 @@ Run : `python main.py`  (in CMD or Shell)
 
 * Add Tuto and explanation in Readme
 
+* Add Axis5/Focus3 and just activate for Ramps 1.4.
 * Add MacOS executable version
 * Add Warning for Low Rate
 * Add Warning for Low Tracking resolution ([xls file](http://www.stellarjourney.com/assets/downloads/OnStep-Calculations.xls))
