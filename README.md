@@ -1,5 +1,7 @@
 # Onstep_Generator
 
+![OnStep_logo](https://github.com/dragonlost/Onstep_Generator/raw/master/OnStep_Logo_Medium.png)
+
 Programme for generate config file for Onstep program.
 
 ## Compatibility :
@@ -18,7 +20,7 @@ __Two methods :__
 * For __Windows__ --> [Windows](https://github.com/dragonlost/Onstep_Generator/raw/master/executable/OnStep_Generator_Linux64_vB0.6.zip)
 * For __Linux__ --> [Linux](https://github.com/dragonlost/Onstep_Generator/raw/master/executable/OnStep_Generator_Win64_vB0.6.zip)
 
-Unzip and Run Onstep_Generator
+Unzip and Run Onstep_Generator (*double click*)
 
 ----
 
