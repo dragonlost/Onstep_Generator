@@ -6,6 +6,7 @@ Program generate config file for Onstep program.
 
 ## Compatibility :
 Version Beta_0.6 of Generator is compatible with 15/05/2018 OnStep Alpha Version.
+The default settings are the same as OnStep
 
 Executable is compatible with __Windows__ and __Linux__ (__MacOS__ *ToDo...*).
 
@@ -42,6 +43,17 @@ And need add librairis : sip and pyQt5
 
 Go in Onstep Generator Folder (via command `cd`)    
 Run : `python main.py`  (in CMD or Shell)
+
+----
+
+## ToDo :
+
+* Add MacOS executable version
+* Add Warning for low rate
+* Add Warning for low sTracking resolution([xls file](http://www.stellarjourney.com/assets/downloads/OnStep-Calculations.xls))
+* Add Maximum slew rate update dynamically
+* Add Steps Per Degree update dynamically
+* *Add Possibility for upload OnStep code in controller (teensy and arduino in first time)* 
 
 -------------------------
 
