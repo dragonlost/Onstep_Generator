@@ -12,13 +12,15 @@ Executable is compatible with Windows and Linux (MacOS ToDo...).
 Two methods :
 ### Executable :
 
-* For __Windows__ --> 
-* For __Linux__ -->
+* For __Windows__ --> [Windows](https://github.com/dragonlost/Onstep_Generator/blob/master/executable/OnStep_Generator_Linux64_vB0.6.zip)
+* For __Linux__ --> [Linux](https://github.com/dragonlost/Onstep_Generator/blob/master/executable/OnStep_Generator_Win64_vB0.6.zip)
+
+Unzip and Run Onstep_Generator
 
 ### Python :
 
 Need install Python 3, 
-* for Windows -->  https://www.python.org/ftp/python/3.6.5/python-3.6.5-amd64.exe 
+* for Windows -->  [Python 3.6](https://www.python.org/ftp/python/3.6.5/python-3.6.5-amd64.exe) 
 * for Linux   -->`sudo apt install python3-dev` or Anaconda/Miniconda 3
                      
 And need add librairis : sip and pyQt5
@@ -29,5 +31,5 @@ And need add librairis : sip and pyQt5
 * For __Windows__ (in CMD in Admin): `pip install sip`
                                      `pip install pyQt5`
 
-Go in Onstep Generator Folder (via command <h1>cd<\h1>)    
+Go in Onstep Generator Folder (via command `cd`)    
 Run : `python main.py`  (in CMD or Shell)
