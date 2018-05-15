@@ -9,7 +9,8 @@ Executable is compatible with __Windows__ and __Linux__ (__MacOS__ *ToDo...*).
 
 ## Installation :
 
-Two methods :
+__Two methods :__
+
 ----
 ### Executable :
 
