@@ -36,10 +36,10 @@ Need install Python 3,
                      
 And need add librairis : sip and pyQt5
 
-* For __Linux__ and __MacOs__ (in Shell): `pip install sip`
+* For __Linux__ and __MacOs__ (in Shell): `pip install sip` ;
                                           `pip install pyQt5`
 
-* For __Windows__ (in CMD in Admin): `pip install sip`
+* For __Windows__ (in CMD in Admin): `pip install sip` ;
                                      `pip install pyQt5`
 
 Go in Onstep Generator Folder (via command `cd`)    
