@@ -1,4 +1,12 @@
-
-For Linux and Windows :
+Create Spec and compile :
+Linux and Windows :
 pyinstaller --onefile -y --clean --windowed --name Onstep_Generator --icon=OnStep.ico main.py
 
+or 
+
+Compile:
+Linux :
+pyinstaller Onstep_Generator_linux.spec
+
+Windows :
+pyinstaller Onstep_Generator_win.spec
