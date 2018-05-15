@@ -10,6 +10,7 @@ Executable is compatible with __Windows__ and __Linux__ (__MacOS__ *ToDo...*).
 ## Installation :
 
 Two methods :
+----
 ### Executable :
 
 * For __Windows__ --> [Windows](https://github.com/dragonlost/Onstep_Generator/raw/master/executable/OnStep_Generator_Linux64_vB0.6.zip)
@@ -33,3 +34,4 @@ And need add librairis : sip and pyQt5
 
 Go in Onstep Generator Folder (via command `cd`)    
 Run : `python main.py`  (in CMD or Shell)
+-------------------------
