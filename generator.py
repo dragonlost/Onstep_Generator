@@ -2,7 +2,7 @@
 
 import time
 
-version = "BETA_0.6"
+version = "BETA_0.7"
 
 def read_conf_file(path_name):
     file = open(path_name,'r')
@@ -81,6 +81,8 @@ def onstep_config(path_read, path=""):
         driver1_mod="TMC2208"
     elif dico["driver1"] == "TMC2130":
         driver1_mod="TMC2130"
+    elif dico["driver1"] == "TMC2100":
+        driver1_mod="TMC2100"
     elif dico["driver1"] == "TMC2130 (Quiet)":
         driver1_mod="TMC2130_QUIET"
     elif dico["driver1"] == "TMC2130 (VQuiet)":
@@ -109,6 +111,8 @@ def onstep_config(path_read, path=""):
         driver2_mod="TMC2208"
     elif dico["driver2"] == "TMC2130":
         driver2_mod="TMC2130"
+    elif dico["driver1"] == "TMC2100":
+        driver1_mod="TMC2100"
     elif dico["driver2"] == "TMC2130 (Quiet)":
         driver2_mod="TMC2130_QUIET"
     elif dico["driver2"] == "TMC2130 (VQuiet)":
