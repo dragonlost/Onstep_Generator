@@ -196,6 +196,7 @@ class ShipHolderApplication(QtWidgets.QMainWindow):
         
         max_az = self.ui.max_az_spinBox.value()
         
+        s_side = self.ui.side_checkBox.isChecked()
         #________________________________________________________________
         
         var = [board_type, mount_type, max_rate, auto_sid, worm1, 
@@ -212,7 +213,7 @@ class ShipHolderApplication(QtWidgets.QMainWindow):
                reticule, ret_intensity, buzzer, buzzer_type, freq_sound, 
                def_sound, atmos, mem_flip_mer, home_pause, mem_max_rate, accel,
                rapid_stop, backlash, off_axis2, degre_e, degre_w, min_dec, 
-               max_dec, pol_limit, max_az]
+               max_dec, pol_limit, max_az, s_side]
         
         return var
     
@@ -365,6 +366,8 @@ class ShipHolderApplication(QtWidgets.QMainWindow):
             self.ui.max_az_spinBox.setValue(dico["max_az"])
             
             self.ui.prompt_textbrowser.append("Load Succes") 
+            
+            self.ui.side_checkBox.setChecked(dico["s_side"])
             
     def create_conf_file(self,path_name,var):
         file = open(path_name,'w')

@@ -13,7 +13,7 @@ def read_conf_file(path_name):
     
     ff = [4,5,13,14,28,29,31,32,35,37,38,41,43,44,80,81]
     ii = [2,6,15,25,26,34,40,51,59,64,69,71,74,82,84,85,86,87,88,89]
-    bol = [3,10,19,22,23,24,30,36,42,48,49,50,52,53,54,55,56,57,58,61,62,63,66,67,68,70,72,75,76,77,78,79,83]
+    bol = [3,10,19,22,23,24,30,36,42,48,49,50,52,53,54,55,56,57,58,61,62,63,66,67,68,70,72,75,76,77,78,79,83,90]
     ss = [0,1,7,8,9,11,12,16,17,18,20,21,27,33,39,45,46,47,60,65,73]
     var_str = ['board_type','mount_type','max_rate','auto_sid',
                'worm1','gear1','stepper1','micro1','slew1','driver1','reverse1','ena1','fault1',
@@ -28,7 +28,7 @@ def read_conf_file(path_name):
                'led1','led2','led2_intensity','reticule','ret_intensity','buzzer',
                'buzzer_type','freq_sound','def_sound','atmos','mem_flip_mer',
                'home_pause','mem_max_rate','accel','rapid_stop','backlash','off_axis2',
-               'degre_e','degre_w','min_dec','max_dec','pol_limit','max_az']
+               'degre_e','degre_w','min_dec','max_dec','pol_limit','max_az','s_side']
     dico = {}
     for i in range(len(text)):
         
@@ -245,7 +245,13 @@ def onstep_config(path_read, path=""):
         s_atm="ON"
     else:
         s_atm="OFF"
-        
+
+    # sync side
+    if dico["s_side"]:
+        sync_side="ON"
+    else:
+        sync_side="OFF"	
+
     # Home Pause
     if dico["home_pause"]:
         p_home="ON"
@@ -330,11 +336,11 @@ def onstep_config(path_read, path=""):
     config_file.write("// Note that Goto Assist in Sky Planetarium works even if this is off\n")
     config_file.write("#define ALIGN_GOTOASSIST_"+assist+"\n")
     config_file.write("\n")
-    config_file.write("// Default speed for Serial1 and Serial4 com ports, Default=9600\n")
-    config_file.write("#define SERIAL1_BAUD_DEFAULT "+dico["baud"]+"\n")
+    config_file.write("// Default speed for Serial1=B and Serial4=C com ports, Default=9600\n")
+    config_file.write("#define SERIAL_B_BAUD_DEFAULT "+dico["baud"]+"\n")
                       
-    if board =="MaxPCB":
-        config_file.write("#define SERIAL4_BAUD_DEFAULT "+dico["baud4"]+"\n")
+    if ((board =="MaxPCB") or (board =="TM4C")):
+        config_file.write("#define SERIAL_C_BAUD_DEFAULT "+dico["baud4"]+"\n")
                           
     config_file.write("\n")
     config_file.write("// ESP8266 reset and GPIO0 control, this sets run mode for normal operation.  Uploading programmer firmware to the OpStep MCU can then enable sending new firmware to the ESP8266-01\n")
@@ -459,6 +465,9 @@ def onstep_config(path_read, path=""):
     config_file.write("// Optionally adjust tracking rate to compensate for atmospheric refraction, default=_OFF\n")
     config_file.write("// can be turned on/off with the :Tr# and :Tn# commands regardless of this setting\n")
     config_file.write("#define TRACK_REFRACTION_RATE_DEFAULT_"+s_atm+"\n")
+    config_file.write("\n")
+    config_file.write("// Set to _OFF and OnStep will allow Syncs to change pier side for GEM mounts (on/off), default=_ON\n")
+    config_file.write("#define SYNC_CURRENT_PIER_SIDE_ONLY_"+sync_side+"\n")
     config_file.write("\n")
     config_file.write("// Set to _ON and OnStep will remember the last auto meridian flip setting (on/off), default=_OFF\n")
     config_file.write("#define REMEMBER_AUTO_MERIDIAN_FLIP_"+mem_flip+"\n")
@@ -629,7 +638,7 @@ def onstep_config(path_read, path=""):
     config_file.write("\n")
     config_file.write("// -------------------------------------------------------------------------------------------------------------------------\n")
     config_file.write("#define FileVersionConfig 2\n")
-    config_file.write("#include \"Pins."+board+".h\"\n")
+    config_file.write("#include \"src/pinmaps/Pins."+board+".h\"\n")
     config_file.write("#endif\n")
     
     config_file.close()

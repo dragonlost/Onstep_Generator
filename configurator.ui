@@ -1223,7 +1223,7 @@
                <x>0</x>
                <y>0</y>
                <width>596</width>
-               <height>983</height>
+               <height>1012</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -2073,6 +2073,13 @@
                <widget class="QCheckBox" name="atmos_checkBox">
                 <property name="text">
                  <string>Traking compensation for atmospheric refaction</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="side_checkBox">
+                <property name="text">
+                 <string>Syncs to change pier side</string>
                 </property>
                </widget>
               </item>
