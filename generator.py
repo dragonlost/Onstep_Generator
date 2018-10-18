@@ -11,10 +11,11 @@ def read_conf_file(path_name):
     for i in range(len(text)) : text[i]=text[i].strip()
     # Convertion des variables (float, int, bool)
     
-    ff = [4,5,13,14,28,29,31,32,35,37,38,41,43,44,80,81]
-    ii = [2,6,15,25,26,34,40,51,59,64,69,71,74,82,84,85,86,87,88,89]
-    bol = [3,10,19,22,23,24,30,36,42,48,49,50,52,53,54,55,56,57,58,61,62,63,66,67,68,70,72,75,76,77,78,79,83,90]
-    ss = [0,1,7,8,9,11,12,16,17,18,20,21,27,33,39,45,46,47,60,65,73]
+    ff = [4,5,13,14,28,29,31,32,35,37,38,41,43,44,80,81]#float
+    ii = [2,6,15,25,26,34,40,51,59,64,69,71,74,82,84,85,86,87,88,89]# integer
+    bol = [3,10,19,22,23,24,30,36,42,48,49,50,52,53,54,55,56,57,58,61,62,63,66,
+           67,68,70,72,75,76,77,78,79,83,90]# boolen
+    ss = [0,1,7,8,9,11,12,16,17,18,20,21,27,33,39,45,46,47,60,65,73]#string
     var_str = ['board_type','mount_type','max_rate','auto_sid',
                'worm1','gear1','stepper1','micro1','slew1','driver1','reverse1','ena1','fault1',
                'worm2','gear2','stepper2','micro2','slew2','driver2','reverse2','ena2','fault2',
@@ -22,13 +23,15 @@ def read_conf_file(path_name):
                'rot_rate','rot_step','rot_micro','rot_gear','rot_gear_2','rot_reverse','rot_min_degr','rot_max_degr','rot_disable',
                'foc1_rate','foc1_ratio','foc1_reverse','foc1_min_mm','foc1_max_mm','focus1_disable',
                'foc2_rate','foc2_ratio','foc2_reverse','foc2_min_mm','foc2_max_mm','focus2_disable',
-               'baud','baud4', 'esp','pec','pec_pul','pec_buffer','goto_assist',
+               'baud','baud4', 'esp','pec','pec_pul','pec_buffer',
                'strict_park','st4','st4_pul','alt_st4','hand','pulse','guide_time',
                'rtc','pps','pps_pul','pec_set','analog_pec','pec_logic','limit',
                'led1','led2','led2_intensity','reticule','ret_intensity','buzzer',
                'buzzer_type','freq_sound','def_sound','atmos','mem_flip_mer',
                'home_pause','mem_max_rate','accel','rapid_stop','backlash','off_axis2',
-               'degre_e','degre_w','min_dec','max_dec','pol_limit','max_az','s_side']
+               'degre_e','degre_w','min_dec','max_dec','pol_limit','max_az','s_side',
+               'rot_autodi','foc1_autodi','foc2_autodi', 'home_flip_mer',
+               'home_sense','ax1_home_rev','ax2_home_rev', 'ax1_home_rev_v', 'ax2_home_rev_v']
     dico = {}
     for i in range(len(text)):
         
@@ -172,9 +175,9 @@ def onstep_config(path_read, path=""):
         board="MiniPCB"
     elif dico["board_type"] == "MaxPCB (4 axis)":
         board="MaxPCB"
-    elif dico["board_type"] == "STM32F1":
+    elif dico["board_type"] == "STM32F1 (outdate)":
         board="STM32"
-    elif dico["board_type"] == "TivaC":
+    elif dico["board_type"] == "TivaC (just for BETA)":
         board="TM4C"
     elif dico["board_type"] == "Classic":
         board="Classic"
@@ -190,12 +193,6 @@ def onstep_config(path_read, path=""):
         mount="FORK"
     elif dico["mount_type"] == "Alt-Azimuth":
         mount="FORK_ALT"
-    
-    # Goto Assist 
-    if dico["goto_assist"]:
-        assist="ON"
-    else:
-        assist="OFF"
         
     # ESP8266 Control
     if dico["esp"]:
@@ -270,6 +267,17 @@ def onstep_config(path_read, path=""):
     else:
         mem_flip="OFF"
         
+    # meridian flip without home position  
+    if dico["home_flip_mer"]:
+        home_flip="ON"
+    else:
+        home_flip="OFF"
+        
+    if dico["home_sense"]:
+        home_s="ON"
+    else:
+        home_s="OFF"
+        
     # Led 1 status    
     if dico["led1"]:
         s_led1="ON"
@@ -288,30 +296,18 @@ def onstep_config(path_read, path=""):
         a_sid="ON"
     else:
         a_sid="OFF"
-        
-    """var = [board_type, mount_type, max_rate, auto_sid, worm1, 
-               gear1, stepper1, micro1, slew1, driver1, reverse1, ena1, fault1,
-               worm2, gear2, stepper2, micro2, slew2, driver2, reverse2, ena2,
-               fault2, rot3, foc1, foc2, rot_rate, rot_step, rot_micro, 
-               rot_gear, rot_gear_2, rot_reverse, rot_min_degr, rot_max_degr,
-               rot_disable, foc1_rate, foc1_ratio, foc1_reverse, foc1_min_mm,
-               foc1_max_mm, focus1_disable, foc2_rate, foc2_ratio, foc2_reverse,
-               foc2_min_mm, foc2_max_mm, focus2_disable, baud, baud4, esp, pec,
-               pec_pul, pec_buffer, goto_assist, strict_park, st4, st4_pul, 
-               alt_st4, hand, pulse, guide_time, rtc, pps, pps_pul, pec_set,
-               analog_pec, pec_logic, limit, led1, led2, led2_intensity, 
-               reticule, ret_intensity, buzzer, buzzer_type, freq_sound, 
-               def_sound, atmos, mem_flip_mer, home_pause, mem_max_rate, accel,
-               rapid_stop, backlash, off_axis2, degre_e, degre_w, min_dec, 
-               max_dec, pol_limit, max_az]
-    """
-    
 
     if path == "":
         config_file = open("Config."+board+".h","w")
         
     else:
         config_file = open(path,"w")
+        
+    #==========================================================================
+    #==========================================================================
+    # START
+    #==========================================================================
+    #==========================================================================
         
     config_file.write("// Config File Generate by OnStep Generator, ver. "+version+"\n")
     config_file.write("// Creation Date : "+ time.strftime("%d %m %Y, %H:%M:%S", time.localtime())+"\n")
@@ -329,12 +325,14 @@ def onstep_config(path_read, path=""):
     config_file.write("#define "+board+"_ON\n")
     config_file.write("\n")
     config_file.write("#ifdef "+board+"_ON\n")
+                    
+    #==========================================================================
+    #==========================================================================
+    # Options
+    #==========================================================================
+    #==========================================================================
     config_file.write("// -------------------------------------------------------------------------------------------------------------------------\n")
     config_file.write("// ADJUST THE FOLLOWING TO CONFIGURE YOUR CONTROLLER FEATURES --------------------------------------------------------------\n")
-    config_file.write("\n")
-    config_file.write("// Enables internal goto assist mount modeling (for Eq mounts), default=_OFF (Experimental)\n")
-    config_file.write("// Note that Goto Assist in Sky Planetarium works even if this is off\n")
-    config_file.write("#define ALIGN_GOTOASSIST_"+assist+"\n")
     config_file.write("\n")
     config_file.write("// Default speed for Serial1=B and Serial4=C com ports, Default=9600\n")
     config_file.write("#define SERIAL_B_BAUD_DEFAULT "+dico["baud"]+"\n")
@@ -377,7 +375,7 @@ def onstep_config(path_read, path=""):
                       
     if board == "Classic":
         config_file.write("// ST4_ALTERNATE_PINS_ON moves the interface (Mega2560 only) to pins 43, 45, 47, 49.  Pin 43 is Dec- (South), Pin 45 is Dec+ (North), Pin 47 is RA- (West), Pin 49 is RA+ (East.)\n")
-        config_file.write("// ST4_ALTERNATE_PINS_ON is required for Steve's ST4 board and is also required if the ST4 interface is to be used alongside the Arduino Ethernet Shield\n")
+        config_file.write("// ST4_ALTERNATE_PINS_ON is required for Steve's ST4 board and is also required if the ST4 interface is to be used alongside the SPI interface\n")
         config_file.write("#define ST4_ALTERNATE_PINS_"+a_st4+"\n")
                           
     config_file.write("\n")
@@ -388,9 +386,10 @@ def onstep_config(path_read, path=""):
     config_file.write("// If the stop command is never received the guide will continue forever unless this is enabled.\n")
     config_file.write("#define GUIDE_TIME_LIMIT "+str(dico["guide_time"])+"\n")
     config_file.write("\n")
-    config_file.write("// RTC (Real Time Clock) support, default=_OFF.\n")
-    config_file.write("// Other options: RTC_DS3234 for a DS3234 on the default SPI interface pins (CS on pin 10) or RTC_DS3231 for a DS3231 on the default I2C pins (optionally wire the SQW output to the PPS pin below.)\n")
-    config_file.write("#define RTC_"+dico["rtc"]+"\n")
+    if ((board != "Classic") or (board !="STM32")):
+        config_file.write("// RTC (Real Time Clock) support, default=_OFF.\n")
+        config_file.write("// Other options: RTC_DS3234 for a DS3234 on the default SPI interface (CS on pin 10) or RTC_DS3231 for a DS3231 on the default I2C pins (optionally wire the SQW output to the PPS pin below.)\n")
+        config_file.write("#define RTC_"+dico["rtc"]+"\n")
     config_file.write("// PPS use _ON or _PULLUP to enable the input and use the built-in pullup resistor.  Sense rising edge on Pin 28 for optional precision clock source (GPS, for example), default=_OFF\n")
     
     if dico["pps"]:
@@ -472,12 +471,33 @@ def onstep_config(path_read, path=""):
     config_file.write("// Set to _ON and OnStep will remember the last auto meridian flip setting (on/off), default=_OFF\n")
     config_file.write("#define REMEMBER_AUTO_MERIDIAN_FLIP_"+mem_flip+"\n")
     config_file.write("\n")
+    config_file.write("// Set to _ON and OnStep will travel directly across a meridian flip without visiting the home position (on/off), default=_OFF (only applies if pause at home is disabled)\n")
+    config_file.write("#define MERIDIAN_FLIP_SKIP_HOME_"+home_flip+"\n")
+    config_file.write("\n")
     config_file.write("// Set to _ON and OnStep will remember the last meridian flip pause at home setting (on/off), default=_OFF\n")
     config_file.write("#define REMEMBER_PAUSE_HOME_"+p_home+"\n")
     config_file.write("\n")
+    if ((board == "MaxPCB") or (board == "Ramps14")):
+        config_file.write("// Automatic homing; switch state changes at the home position (uses Aux3 and Aux4.)\n")
+        config_file.write("#define HOME_SENSE_"+home_s+"               // Default _OFF, use _ON to have OnStep automatically detect and use home switches as follows\n")
+        if dico["ax1_home_rev"]:
+            config_file.write("#define HOME_AXIS1_REVERSE "+dico["ax1_home_rev_v"]+"       // Pin Aux3 state should be HIGH when clockwise of the home position (as seen from front,) LOW otherwise; reverse if necessary\n")
+        else:
+            config_file.write("#define HOME_AXIS1_REVERSE_OFF       // Pin Aux3 state should be HIGH when clockwise of the home position (as seen from front,) LOW otherwise; reverse if necessary\n")
+        if dico["ax2_home_rev"]:
+            config_file.write("#define HOME_AXIS2_REVERSE_"+dico["ax2_home_rev_v"]+"       // Pin Aux4 state should be HIGH when clockwise of the home position (as seen from above,) LOW otherwise; reverse if necessary\n")
+        else:
+            config_file.write("#define HOME_AXIS2_REVERSE_OFF       // Pin Aux4 state should be HIGH when clockwise of the home position (as seen from above,) LOW otherwise; reverse if necessary\n")
     config_file.write("// Auto Tracking at Start\n")
     config_file.write("#define AUTOSTART_TRACKING_"+a_sid+"\n")
     config_file.write("\n")
+    
+    #==========================================================================
+    #==========================================================================
+    # Axis 1 and 2 compute
+    #==========================================================================
+    #==========================================================================
+    
     config_file.write("// ADJUST THE FOLLOWING TO MATCH YOUR MOUNT --------------------------------------------------------------------------------\n")
     config_file.write(" #define REMEMBER_MAX_RATE_"+mem_rate+"        // set to _ON and OnStep will remember rates set in the ASCOM driver, Android App, etc. default=_OFF \n")
     config_file.write(" #define MaxRate                   "+str(dico["max_rate"])+" // microseconds per microstep default setting for gotos, can be adjusted for two times lower or higher at run-time\n")
@@ -521,9 +541,16 @@ def onstep_config(path_read, path=""):
     config_file.write("                                     // fork/yolk mount with meridian flips turned off by setting the minutesPastMeridian values to cover the whole sky)\n")
     config_file.write("#define MaxAzm                   "+str(dico["max_az"])+" // Alt/Az mounts only. +/- maximum allowed Azimuth, default =  180.  Allowed range is 180 to 360\n")
     config_file.write("\n")
+    
+    #==========================================================================
+    #==========================================================================
+    # Axis 1 and 2 options
+    #==========================================================================
+    #==========================================================================
+    
     config_file.write("// AXIS1/2 STEPPER DRIVER CONTROL ------------------------------------------------------------------------------------------\n")
-    config_file.write("// Axis1: Pins 20,21 = Step,Dir (RA/Azm)\n")
-    config_file.write("// Axis2: Pins  3, 2 = Step,Dir (Dec/Alt)\n")
+    config_file.write("// Axis1: Pins 20,21 = Step,Dir (RA/Azm) (Teensy3.x Pins 12,10)\n")
+    config_file.write("// Axis2: Pins  3, 2 = Step,Dir (Dec/Alt) (Teensy3.x Pins 6,4)\n")
     config_file.write("\n")
     config_file.write("// Reverse the direction of movement.  Adjust as needed or reverse your wiring so things move in the right direction\n")
     config_file.write("#define AXIS1_REVERSE_"+rev1+"            // RA/Azm axis\n")
@@ -582,58 +609,95 @@ def onstep_config(path_read, path=""):
         config_file.write("#define AXIS2_FAULT_"+dico["fault2"]+"\n")
                           
     config_file.write("\n")
-    config_file.write("// ------------------------------------------------------------------------------------------------------------------------\n")
-    config_file.write("// FOCUSER ROTATOR OR ALT/AZ DE-ROTATION ----------------------------------------------------------------------------------\n")
-    config_file.write("// Pins 30,33 = Step,Dir (choose either this option or the second focuser, not both)\n")
-    config_file.write("#define ROTATOR_"+rotator+"                  // enable or disable rotator feature (for any mount type,) default=_OFF (de-rotator is available only for MOUNT_TYPE_ALTAZM.)\n")
-    config_file.write("#define MaxRateAxis3               "+str(dico["rot_rate"])+" // this is the minimum number of milli-seconds between micro-steps, default=8\n")
-    config_file.write("#define StepsPerDegreeAxis3     "+str(step_degre_rot)+" // calculated as    :  stepper_steps * micro_steps * gear_reduction1 * (gear_reduction2/360)\n")
-    config_file.write("                                     // Rotator          :  24            * 8           * 20              *  6/360                = 64\n")
-    config_file.write("                                     // For de-rotation of Alt/Az mounts a quick estimate of the required resolution (in StepsPerDegree)\n")
-    config_file.write("                                     // would be an estimate of the circumference of the useful imaging circle in (pixels * 2)/360\n")
-    config_file.write("#define MinAxis3                "+str(dico["rot_min_degr"])+" // minimum allowed Axis3 rotator, default = -180\n")
-    config_file.write("#define MaxAxis3                 "+str(dico["rot_max_degr"])+" // maximum allowed Axis3 rotator, default =  180\n")
-    config_file.write("#define AXIS3_REVERSE_"+rot_rev+"            // reverse the direction of Axis3 rotator movement\n")
     
-    if dico["rot_disable"] == "OFF":
-        config_file.write("#define AXIS3_DISABLE_"+dico["rot_disable"]+"            // Pin 36 (Aux3.)  Use HIGH for common stepper drivers if you want to power down the motor at stand-still.  Default _OFF.\n")
-    else:
-        config_file.write("#define AXIS3_DISABLE "+dico["rot_disable"]+"            // Pin 36 (Aux3.)  Use HIGH for common stepper drivers if you want to power down the motor at stand-still.  Default _OFF.\n")
-        
-    config_file.write("\n")
-    config_file.write("// FOCUSER1 ---------------------------------------------------------------------------------------------------------------\n")
-    config_file.write("// Pins 34,35 = Step,Dir\n")
-    config_file.write("#define FOCUSER1_"+focus1+"                 // enable or disable focuser feature, default=_OFF\n")
-    config_file.write("#define MaxRateAxis4               "+str(dico["foc1_rate"])+" // this is the minimum number of milli-seconds between micro-steps, default=8\n")
-    config_file.write("#define StepsPerMicrometerAxis4  "+str(dico["foc1_ratio"])+" // figure this out by testing or other means\n")
-    config_file.write("#define MinAxis4               "+str(dico["foc1_min_mm"])+" // minimum allowed Axis4 position in millimeters, default = -25.0\n")
-    config_file.write("#define MaxAxis4                "+str(dico["foc1_max_mm"])+" // maximum allowed Axis4 position in millimeters, default =  25.0\n")
-    config_file.write("#define AXIS4_REVERSE_"+foc1_rev+"            // reverse the direction of Axis4 focuser movement\n")
+    #==========================================================================
+    #==========================================================================
+    # Axis 3, 4 et 5 (rot, focus1 and focus2)
+    #==========================================================================
+    #==========================================================================
     
-    if dico["focus1_disable"] == "OFF":
-        config_file.write("#define AXIS4_DISABLE_"+dico["focus1_disable"]+"            // Pin 39 (Aux4.)  Use HIGH for common stepper drivers if you want to power down the motor at stand-still.  Default _OFF.\n")
-    else:                      
-        config_file.write("#define AXIS4_DISABLE "+dico["focus1_disable"]+"            // Pin 39 (Aux4.)  Use HIGH for common stepper drivers if you want to power down the motor at stand-still.  Default _OFF.\n")
-    
-    config_file.write("\n")
-    
-    if board != "TM4C":
-        config_file.write("// FOCUSER2 ---------------------------------------------------------------------------------------------------------------\n")
-        config_file.write("// Pins 30,33 = Step,Dir (choose either this option or the rotator, not both) \n")
-        config_file.write("#define FOCUSER2_"+focus2+"                 // enable or disable focuser feature, default=_OFF\n")
-        config_file.write("#define MaxRateAxis5               "+str(dico["foc2_rate"])+" // this is the minimum number of milli-seconds between micro-steps, default=8\n")
-        config_file.write("#define StepsPerMicrometerAxis5  "+str(dico["foc2_ratio"])+" // figure this out by testing or other means\n")
-        config_file.write("#define MinAxis5               "+str(dico["foc2_min_mm"])+" // minimum allowed Axis5 position in millimeters, default = -25.0\n")
-        config_file.write("#define MaxAxis5                "+str(dico["foc2_max_mm"])+" // maximum allowed Axis5 position in millimeters, default =  25.0\n")
-        config_file.write("#define AXIS5_REVERSE_"+foc2_rev+"            // reverse the direction of Axis5 focuser movement\n")
-        
-        if dico["focus2_disable"] == "OFF":                  
-            config_file.write("#define AXIS5_DISABLE_"+dico["focus2_disable"]+"            // Pin 36 (Aux3.)  Use HIGH for common stepper drivers if you want to power down the motor at stand-still.  Default _OFF.\n")
+    if board != "Mega2560Alt":
+        config_file.write("// ------------------------------------------------------------------------------------------------------------------------\n")
+        if board == "MiniPCB":
+            config_file.write("// THE FOLLOWING ARE INFREQUENTLY USED OPTIONS FOR THE MINIPCB SINCE USING ANY OF THESE WOULD REQUIRE SOLDERING TO THE PCB BACK AND ADDING OFF-PCB CIRCUITRY, MUCH EASIER TO USE A MAXPCB AND TEENSY3.5/3.6\n")
+        config_file.write("// CAMERA ROTATOR OR ALT/AZ DE-ROTATION ----------------------------------------------------------------------------------\n")
+        if board != "TM4C":
+            if board != "ramps14":
+                config_file.write("// Pins 30,33 = Step,Dir (choose either this option or the second focuser, not both)\n")
+            else:
+                config_file.write("// Pins 30,33 = Step,Dir\n")
         else:
-            config_file.write("#define AXIS5_DISABLE "+dico["focus2_disable"]+"            // Pin 36 (Aux3.)  Use HIGH for common stepper drivers if you want to power down the motor at stand-still.  Default _OFF.\n")
-                          
+            config_file.write("// Pins 30,33 = Step,Dir (choose either this option or the first focuser, not both)\n")
+            
+        config_file.write("#define ROTATOR_"+rotator+"                  // use _ON to enable the rotator (for any mount type,) default=_OFF (this is also a de-rotator for MOUNT_TYPE_ALTAZM mounts.)\n")
+        config_file.write("#define MaxRateAxis3               "+str(dico["rot_rate"])+" // this is the minimum number of milli-seconds between micro-steps, default=8\n")
+        config_file.write("#define StepsPerDegreeAxis3     "+str(step_degre_rot)+" // calculated as    :  stepper_steps * micro_steps * gear_reduction1 * (gear_reduction2/360)\n")
+        config_file.write("                                     // Rotator          :  24            * 8           * 20              *  6/360                = 64\n")
+        config_file.write("                                     // For de-rotation of Alt/Az mounts a quick estimate of the required resolution (in StepsPerDegree)\n")
+        config_file.write("                                     // would be an estimate of the circumference of the useful imaging circle in (pixels * 2)/360\n")
+        config_file.write("#define MinAxis3                "+str(dico["rot_min_degr"])+" // minimum allowed Axis3 rotator, default = -180\n")
+        config_file.write("#define MaxAxis3                 "+str(dico["rot_max_degr"])+" // maximum allowed Axis3 rotator, default =  180\n")
+        config_file.write("#define AXIS3_REVERSE_"+rot_rev+"            // reverse the direction of Axis3 rotator movement\n")
+        
+        if ((board != "Classic") and (board != "MiniPCB")):
+            if dico["rot_disable"] == "OFF":
+                config_file.write("#define AXIS3_DISABLE_"+dico["rot_disable"]+"            // Pin 36 (Aux3.)  Default _OFF, use HIGH for common stepper drivers.\n")
+            else:
+                config_file.write("#define AXIS3_DISABLE "+dico["rot_disable"]+"            // Pin 36 (Aux3.)  Default _OFF, use HIGH for common stepper drivers.\n")
+            config_file.write("#define AXIS3_AUTO_POWER_DOWN_"+dico["rot_autodi"]+"    // use _ON if you want to power down the motor at stand-still.  Default _OFF.\n")
         config_file.write("\n")
         
+        
+        config_file.write("// FOCUSER1 ---------------------------------------------------------------------------------------------------------------\n")
+        if board != "TM4C":
+            config_file.write("// Pins 34,35 = Step,Dir\n")
+        else:
+            config_file.write("// Pins (see pinmap) = Step,Dir (choose either this option or the rotator, not both)\n")
+        config_file.write("#define FOCUSER1_"+focus1+"                 // use _ON to enable this focuser, default=_OFF\n")
+        config_file.write("#define MaxRateAxis4               "+str(dico["foc1_rate"])+" // this is the minimum number of milli-seconds between micro-steps, default=8\n")
+        config_file.write("#define StepsPerMicrometerAxis4  "+str(dico["foc1_ratio"])+" // figure this out by testing or other means\n")
+        config_file.write("#define MinAxis4               "+str(dico["foc1_min_mm"])+" // minimum allowed Axis4 position in millimeters, default = -25.0\n")
+        config_file.write("#define MaxAxis4                "+str(dico["foc1_max_mm"])+" // maximum allowed Axis4 position in millimeters, default =  25.0\n")
+        config_file.write("#define AXIS4_REVERSE_"+foc1_rev+"            // reverse the direction of Axis4 focuser movement\n")          
+                          
+        if ((board != "Classic") and (board != "MiniPCB")):
+            if dico["foc1_disable"] == "OFF":
+                config_file.write("#define AXIS4_DISABLE_"+dico["foc1_disable"]+"            // Pin 39 (Aux4.)  Default _OFF, use HIGH for common stepper drivers.\n")
+            else:                      
+                config_file.write("#define AXIS4_DISABLE "+dico["foc1_disable"]+"            // Pin 39 (Aux4.)  Default _OFF, use HIGH for common stepper drivers.\n")
+            config_file.write("#define AXIS4_AUTO_POWER_DOWN_"+dico["foc1_autodi"]+"    // use _ON if you want to power down the motor at stand-still.  Default _OFF.\n")
+        config_file.write("\n")
+            
+        
+        if ((board != "TM4C") and (board != "STM32")):
+            config_file.write("// FOCUSER2 ---------------------------------------------------------------------------------------------------------------\n")
+            if board != "ramps14":
+                config_file.write("// Pins 30,33 = Step,Dir (choose either this option or the rotator, not both) \n")
+            else:
+                config_file.write("// Pins 30,33 = Step,Dir \n")
+                
+            config_file.write("#define FOCUSER2_"+focus2+"                 // use _ON to enable this focuser, default=_OFF\n")
+            config_file.write("#define MaxRateAxis5               "+str(dico["foc2_rate"])+" // this is the minimum number of milli-seconds between micro-steps, default=8\n")
+            config_file.write("#define StepsPerMicrometerAxis5  "+str(dico["foc2_ratio"])+" // figure this out by testing or other means\n")
+            config_file.write("#define MinAxis5               "+str(dico["foc2_min_mm"])+" // minimum allowed Axis5 position in millimeters, default = -25.0\n")
+            config_file.write("#define MaxAxis5                "+str(dico["foc2_max_mm"])+" // maximum allowed Axis5 position in millimeters, default =  25.0\n")
+            config_file.write("#define AXIS5_REVERSE_"+foc2_rev+"            // reverse the direction of Axis5 focuser movement\n")
+            
+            if ((board != "Classic") and (board != "MiniPCB")):
+                if dico["foc2_disable"] == "OFF":                  
+                    config_file.write("#define AXIS5_DISABLE_"+dico["foc2_disable"]+"            // Pin 36 (Aux3.)  Default _OFF, use HIGH for common stepper drivers.\n")
+                else:
+                    config_file.write("#define AXIS5_DISABLE "+dico["foc2_disable"]+"            // Pin 36 (Aux3.)  Default _OFF, use HIGH for common stepper drivers.\n")
+                config_file.write("#define AXIS5_AUTO_POWER_DOWN_"+dico["foc2_autodi"]+"            // use _ON if you want to power down the motor at stand-still.  Default _OFF.\n")                  
+            config_file.write("\n")
+            
+    #==========================================================================
+    #==========================================================================
+    # END
+    #==========================================================================
+    #==========================================================================
+    
+    
     config_file.write("// THAT'S IT FOR USER CONFIGURATION!\n")
     config_file.write("\n")
     config_file.write("// -------------------------------------------------------------------------------------------------------------------------\n")

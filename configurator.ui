@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>654</width>
-    <height>782</height>
+    <width>635</width>
+    <height>789</height>
    </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>753</width>
+    <height>16777215</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>configurator</string>
@@ -94,12 +100,12 @@
               </item>
               <item>
                <property name="text">
-                <string>STM32F1</string>
+                <string>STM32F1 (outdate)</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>TivaC</string>
+                <string>TivaC (just for BETA)</string>
                </property>
               </item>
               <item>
@@ -756,28 +762,44 @@
           <string>Axis3/2</string>
          </attribute>
          <layout class="QGridLayout" name="gridLayout_3">
-          <item row="9" column="0">
-           <widget class="QLabel" name="label_13">
-            <property name="text">
-             <string>Disable Axes after Time</string>
+          <item row="10" column="3">
+           <widget class="QDoubleSpinBox" name="focus2_max_mil_doubleSpinBox">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimum">
+             <double>-999999.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999999.989999999990687</double>
+            </property>
+            <property name="value">
+             <double>25.000000000000000</double>
             </property>
            </widget>
           </item>
-          <item row="2" column="0">
+          <item row="11" column="0">
+           <widget class="QLabel" name="label_13">
+            <property name="text">
+             <string>Enable logic (off for disable)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
            <widget class="QLabel" name="label_35">
             <property name="text">
              <string> Stepper Steps</string>
             </property>
            </widget>
           </item>
-          <item row="8" column="0">
+          <item row="10" column="0">
            <widget class="QLabel" name="label_41">
             <property name="text">
              <string> Max axis (degrees or millimeters)</string>
             </property>
            </widget>
           </item>
-          <item row="8" column="1">
+          <item row="10" column="1">
            <widget class="QDoubleSpinBox" name="rot_max_angle_doubleSpinBox">
             <property name="enabled">
              <bool>false</bool>
@@ -793,7 +815,7 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="1">
+          <item row="3" column="1">
            <widget class="QSpinBox" name="rot_mrate_spinBox">
             <property name="enabled">
              <bool>false</bool>
@@ -806,7 +828,7 @@
             </property>
            </widget>
           </item>
-          <item row="7" column="2">
+          <item row="9" column="2">
            <widget class="QDoubleSpinBox" name="focus1_min_mil_doubleSpinBox">
             <property name="enabled">
              <bool>false</bool>
@@ -822,7 +844,7 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="3">
+          <item row="3" column="3">
            <widget class="QSpinBox" name="focus2_mrate_spinBox">
             <property name="enabled">
              <bool>false</bool>
@@ -835,14 +857,14 @@
             </property>
            </widget>
           </item>
-          <item row="4" column="0">
+          <item row="6" column="0">
            <widget class="QLabel" name="label_38">
             <property name="text">
              <string> Gear 1 reduction Ratio</string>
             </property>
            </widget>
           </item>
-          <item row="5" column="0">
+          <item row="7" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_7">
             <item>
              <widget class="QLabel" name="label_37">
@@ -860,21 +882,21 @@
             </item>
            </layout>
           </item>
-          <item row="6" column="0">
+          <item row="8" column="0">
            <widget class="QLabel" name="label_39">
             <property name="text">
              <string> Reverse Axis</string>
             </property>
            </widget>
           </item>
-          <item row="7" column="0">
+          <item row="9" column="0">
            <widget class="QLabel" name="label_40">
             <property name="text">
              <string> Min axis (degrees or millimeters)</string>
             </property>
            </widget>
           </item>
-          <item row="5" column="2">
+          <item row="7" column="2">
            <widget class="QDoubleSpinBox" name="focus1_micro_doubleSpinBox">
             <property name="enabled">
              <bool>false</bool>
@@ -887,14 +909,14 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="3">
+          <item row="2" column="3">
            <widget class="QCheckBox" name="focus2_checkBox">
             <property name="text">
              <string>Focuser 2</string>
             </property>
            </widget>
           </item>
-          <item row="6" column="1">
+          <item row="8" column="1">
            <widget class="QCheckBox" name="rot_reverse_checkBox">
             <property name="enabled">
              <bool>false</bool>
@@ -904,37 +926,21 @@
             </property>
            </widget>
           </item>
-          <item row="8" column="3">
-           <widget class="QDoubleSpinBox" name="focus2_max_mil_doubleSpinBox">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="minimum">
-             <double>-999999.000000000000000</double>
-            </property>
-            <property name="maximum">
-             <double>999999.989999999990687</double>
-            </property>
-            <property name="value">
-             <double>25.000000000000000</double>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="2">
+          <item row="2" column="2">
            <widget class="QCheckBox" name="focus1_checkBox">
             <property name="text">
              <string>Focuser 1</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="1">
+          <item row="2" column="1">
            <widget class="QCheckBox" name="rot_checkBox">
             <property name="text">
              <string>De-Rotator</string>
             </property>
            </widget>
           </item>
-          <item row="6" column="3">
+          <item row="8" column="3">
            <widget class="QCheckBox" name="focus2_reverse_checkBox">
             <property name="enabled">
              <bool>false</bool>
@@ -944,21 +950,21 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="0">
+          <item row="3" column="0">
            <widget class="QLabel" name="label_34">
             <property name="text">
              <string> Max Rate Ratio</string>
             </property>
            </widget>
           </item>
-          <item row="3" column="0">
+          <item row="5" column="0">
            <widget class="QLabel" name="label_36">
             <property name="text">
              <string> Micro Steps</string>
             </property>
            </widget>
           </item>
-          <item row="5" column="3">
+          <item row="7" column="3">
            <widget class="QDoubleSpinBox" name="focus2_micro_doubleSpinBox">
             <property name="enabled">
              <bool>false</bool>
@@ -971,7 +977,7 @@
             </property>
            </widget>
           </item>
-          <item row="8" column="2">
+          <item row="10" column="2">
            <widget class="QDoubleSpinBox" name="focus1_max_mil_doubleSpinBox">
             <property name="enabled">
              <bool>false</bool>
@@ -987,7 +993,7 @@
             </property>
            </widget>
           </item>
-          <item row="7" column="1">
+          <item row="9" column="1">
            <widget class="QDoubleSpinBox" name="rot_min_angle_doubleSpinBox">
             <property name="enabled">
              <bool>false</bool>
@@ -1003,7 +1009,7 @@
             </property>
            </widget>
           </item>
-          <item row="5" column="1">
+          <item row="7" column="1">
            <widget class="QDoubleSpinBox" name="rot_gear2_doubleSpinBox">
             <property name="enabled">
              <bool>false</bool>
@@ -1013,7 +1019,7 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="2">
+          <item row="3" column="2">
            <widget class="QSpinBox" name="focus1_mrate_spinBox">
             <property name="enabled">
              <bool>false</bool>
@@ -1026,7 +1032,7 @@
             </property>
            </widget>
           </item>
-          <item row="6" column="2">
+          <item row="8" column="2">
            <widget class="QCheckBox" name="focus1_reverse_checkBox">
             <property name="enabled">
              <bool>false</bool>
@@ -1036,7 +1042,7 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="1">
+          <item row="5" column="1">
            <widget class="QComboBox" name="rot_mode_comboBox">
             <property name="enabled">
              <bool>false</bool>
@@ -1088,7 +1094,7 @@
             </item>
            </widget>
           </item>
-          <item row="7" column="3">
+          <item row="9" column="3">
            <widget class="QDoubleSpinBox" name="focus2_min_mil_doubleSpinBox">
             <property name="enabled">
              <bool>false</bool>
@@ -1104,33 +1110,7 @@
             </property>
            </widget>
           </item>
-          <item row="4" column="1">
-           <widget class="QDoubleSpinBox" name="rot_gear1_doubleSpinBox">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="maximum">
-             <double>999999.989999999990687</double>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QSpinBox" name="rot_step_spinBox">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="minimum">
-             <number>1</number>
-            </property>
-            <property name="maximum">
-             <number>100000</number>
-            </property>
-            <property name="value">
-             <number>200</number>
-            </property>
-           </widget>
-          </item>
-          <item row="9" column="1">
+          <item row="11" column="1">
            <widget class="QComboBox" name="rot_di_comboBox">
             <property name="enabled">
              <bool>false</bool>
@@ -1152,7 +1132,55 @@
             </item>
            </widget>
           </item>
-          <item row="9" column="2">
+          <item row="6" column="1">
+           <widget class="QDoubleSpinBox" name="rot_gear1_doubleSpinBox">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="maximum">
+             <double>999999.989999999990687</double>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QSpinBox" name="rot_step_spinBox">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>100000</number>
+            </property>
+            <property name="value">
+             <number>200</number>
+            </property>
+           </widget>
+          </item>
+          <item row="11" column="3">
+           <widget class="QComboBox" name="focus2_di_comboBox">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <item>
+             <property name="text">
+              <string>OFF</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>HIGH</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>LOW</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="11" column="2">
            <widget class="QComboBox" name="focus1_di_comboBox">
             <property name="enabled">
              <bool>false</bool>
@@ -1174,26 +1202,68 @@
             </item>
            </widget>
           </item>
-          <item row="9" column="3">
-           <widget class="QComboBox" name="focus2_di_comboBox">
+          <item row="12" column="1">
+           <widget class="QCheckBox" name="rot_auto_checkBox">
             <property name="enabled">
              <bool>false</bool>
             </property>
-            <item>
-             <property name="text">
-              <string>OFF</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>HIGH</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>LOW</string>
-             </property>
-            </item>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="12" column="3">
+           <widget class="QCheckBox" name="focus2_auto_checkBox">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="12" column="2">
+           <widget class="QCheckBox" name="focus1_auto_checkBox">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="12" column="0">
+           <widget class="QLabel" name="label_47">
+            <property name="text">
+             <string>Auto Power Down</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="label_49">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline;&quot;&gt;Not available for :&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Mega 2560 Alternative&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLabel" name="label_50">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline;&quot;&gt;Not available for :&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Mega 2560 Alternative&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QLabel" name="label_51">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline;&quot;&gt;Not available for :&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Mega 2560 Alternative&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;STM32F1&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;TivaC&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
            </widget>
           </item>
          </layout>
@@ -1222,8 +1292,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>596</width>
-               <height>1012</height>
+               <width>577</width>
+               <height>1125</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -1549,13 +1619,6 @@
                </layout>
               </item>
               <item>
-               <widget class="QCheckBox" name="goto_assist_checkBox">
-                <property name="text">
-                 <string>Align Goto Assist</string>
-                </property>
-               </widget>
-              </item>
-              <item>
                <widget class="QCheckBox" name="strict_checkBox">
                 <property name="text">
                  <string>Strict Parking</string>
@@ -1717,6 +1780,11 @@
                   <item>
                    <property name="text">
                     <string>OFF</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>DS3231</string>
                    </property>
                   </item>
                   <item>
@@ -2091,9 +2159,99 @@
                </widget>
               </item>
               <item>
+               <widget class="QCheckBox" name="home_flip_checkBox">
+                <property name="text">
+                 <string>Meridian Flip without visiting home position</string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QCheckBox" name="home_pause_checkBox">
                 <property name="text">
                  <string>Home Pause</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="Line" name="line_4">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="home_sense_checkBox">
+                <property name="text">
+                 <string>Home sense (MaxPCB and Ramps14)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_25">
+                <item>
+                 <widget class="QCheckBox" name="home_ax1_re_checkBox">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="text">
+                   <string>Home Axis 1 Reverse</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="home_ax1_re_comboBox">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>HIGH</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>LOW</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_26">
+                <item>
+                 <widget class="QCheckBox" name="home_ax2_re_checkBox">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="text">
+                   <string>Home Axis 2 Reverse</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="home_ax2_re_comboBox">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>HIGH</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>LOW</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="Line" name="line_5">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
                 </property>
                </widget>
               </item>
@@ -2504,7 +2662,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>654</width>
+     <width>635</width>
      <height>22</height>
     </rect>
    </property>
@@ -2584,12 +2742,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>191</x>
-     <y>171</y>
+     <x>204</x>
+     <y>24</y>
     </hint>
     <hint type="destinationlabel">
-     <x>415</x>
-     <y>171</y>
+     <x>408</x>
+     <y>23</y>
     </hint>
    </hints>
   </connection>
@@ -2600,12 +2758,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>175</x>
-     <y>171</y>
+     <x>188</x>
+     <y>24</y>
     </hint>
     <hint type="destinationlabel">
-     <x>611</x>
-     <y>172</y>
+     <x>588</x>
+     <y>23</y>
     </hint>
    </hints>
   </connection>
@@ -2616,12 +2774,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>468</x>
-     <y>255</y>
+     <x>458</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
-     <x>526</x>
-     <y>256</y>
+     <x>521</x>
+     <y>115</y>
     </hint>
    </hints>
   </connection>
@@ -2633,11 +2791,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>270</x>
-     <y>176</y>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
      <x>270</x>
-     <y>219</y>
+     <y>299</y>
     </hint>
    </hints>
   </connection>
@@ -2649,11 +2807,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>270</x>
-     <y>176</y>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
      <x>365</x>
-     <y>305</y>
+     <y>371</y>
     </hint>
    </hints>
   </connection>
@@ -2665,11 +2823,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>270</x>
-     <y>176</y>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
      <x>365</x>
-     <y>391</y>
+     <y>443</y>
     </hint>
    </hints>
   </connection>
@@ -2681,11 +2839,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>270</x>
-     <y>176</y>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
      <x>365</x>
-     <y>344</y>
+     <y>403</y>
     </hint>
    </hints>
   </connection>
@@ -2697,11 +2855,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>270</x>
-     <y>176</y>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
-     <x>365</x>
-     <y>430</y>
+     <x>370</x>
+     <y>475</y>
     </hint>
    </hints>
   </connection>
@@ -2713,11 +2871,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>270</x>
-     <y>176</y>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
      <x>270</x>
-     <y>469</y>
+     <y>507</y>
     </hint>
    </hints>
   </connection>
@@ -2729,11 +2887,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>270</x>
-     <y>176</y>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
-     <x>365</x>
-     <y>509</y>
+     <x>370</x>
+     <y>540</y>
     </hint>
    </hints>
   </connection>
@@ -2744,12 +2902,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>398</x>
-     <y>176</y>
+     <x>392</x>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
-     <x>398</x>
-     <y>219</y>
+     <x>392</x>
+     <y>299</y>
     </hint>
    </hints>
   </connection>
@@ -2760,12 +2918,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>398</x>
-     <y>176</y>
+     <x>392</x>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
-     <x>500</x>
-     <y>391</y>
+     <x>491</x>
+     <y>443</y>
     </hint>
    </hints>
   </connection>
@@ -2776,12 +2934,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>398</x>
-     <y>176</y>
+     <x>392</x>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
-     <x>500</x>
-     <y>430</y>
+     <x>491</x>
+     <y>475</y>
     </hint>
    </hints>
   </connection>
@@ -2792,12 +2950,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>398</x>
-     <y>176</y>
+     <x>392</x>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
-     <x>398</x>
-     <y>469</y>
+     <x>392</x>
+     <y>507</y>
     </hint>
    </hints>
   </connection>
@@ -2808,12 +2966,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>398</x>
-     <y>176</y>
+     <x>392</x>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
-     <x>500</x>
-     <y>509</y>
+     <x>491</x>
+     <y>540</y>
     </hint>
    </hints>
   </connection>
@@ -2824,12 +2982,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>526</x>
-     <y>176</y>
+     <x>513</x>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
-     <x>526</x>
-     <y>219</y>
+     <x>513</x>
+     <y>299</y>
     </hint>
    </hints>
   </connection>
@@ -2840,12 +2998,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>526</x>
-     <y>176</y>
+     <x>513</x>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
-     <x>634</x>
-     <y>391</y>
+     <x>613</x>
+     <y>445</y>
     </hint>
    </hints>
   </connection>
@@ -2856,12 +3014,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>526</x>
-     <y>176</y>
+     <x>513</x>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
-     <x>634</x>
-     <y>430</y>
+     <x>613</x>
+     <y>475</y>
     </hint>
    </hints>
   </connection>
@@ -2872,12 +3030,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>526</x>
-     <y>176</y>
+     <x>513</x>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
-     <x>526</x>
-     <y>469</y>
+     <x>513</x>
+     <y>507</y>
     </hint>
    </hints>
   </connection>
@@ -2888,12 +3046,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>526</x>
-     <y>176</y>
+     <x>513</x>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
-     <x>634</x>
-     <y>509</y>
+     <x>613</x>
+     <y>540</y>
     </hint>
    </hints>
   </connection>
@@ -2905,11 +3063,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>338</x>
-     <y>186</y>
+     <y>273</y>
     </hint>
     <hint type="destinationlabel">
      <x>365</x>
-     <y>265</y>
+     <y>338</y>
     </hint>
    </hints>
   </connection>
@@ -2920,12 +3078,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>76</x>
-     <y>-68</y>
+     <x>83</x>
+     <y>-206</y>
     </hint>
     <hint type="destinationlabel">
-     <x>236</x>
-     <y>-68</y>
+     <x>233</x>
+     <y>-206</y>
     </hint>
    </hints>
   </connection>
@@ -2936,12 +3094,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>76</x>
-     <y>-68</y>
+     <x>83</x>
+     <y>-206</y>
     </hint>
     <hint type="destinationlabel">
-     <x>438</x>
-     <y>-67</y>
+     <x>425</x>
+     <y>-207</y>
     </hint>
    </hints>
   </connection>
@@ -2952,12 +3110,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>76</x>
-     <y>-68</y>
+     <x>83</x>
+     <y>-206</y>
     </hint>
     <hint type="destinationlabel">
-     <x>521</x>
-     <y>-67</y>
+     <x>513</x>
+     <y>-207</y>
     </hint>
    </hints>
   </connection>
@@ -2968,12 +3126,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>75</x>
-     <y>24</y>
+     <x>81</x>
+     <y>-135</y>
     </hint>
     <hint type="destinationlabel">
-     <x>203</x>
-     <y>24</y>
+     <x>201</x>
+     <y>-135</y>
     </hint>
    </hints>
   </connection>
@@ -2984,12 +3142,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>75</x>
-     <y>24</y>
+     <x>81</x>
+     <y>-135</y>
     </hint>
     <hint type="destinationlabel">
-     <x>380</x>
-     <y>24</y>
+     <x>375</x>
+     <y>-135</y>
     </hint>
    </hints>
   </connection>
@@ -3000,12 +3158,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>75</x>
-     <y>24</y>
+     <x>81</x>
+     <y>-135</y>
     </hint>
     <hint type="destinationlabel">
-     <x>552</x>
-     <y>24</y>
+     <x>542</x>
+     <y>-135</y>
     </hint>
    </hints>
   </connection>
@@ -3016,12 +3174,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>96</x>
-     <y>286</y>
+     <x>103</x>
+     <y>150</y>
     </hint>
     <hint type="destinationlabel">
-     <x>333</x>
-     <y>287</y>
+     <x>323</x>
+     <y>149</y>
     </hint>
    </hints>
   </connection>
@@ -3032,12 +3190,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>96</x>
-     <y>286</y>
+     <x>103</x>
+     <y>150</y>
     </hint>
     <hint type="destinationlabel">
-     <x>418</x>
-     <y>287</y>
+     <x>414</x>
+     <y>149</y>
     </hint>
    </hints>
   </connection>
@@ -3048,12 +3206,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>76</x>
-     <y>-68</y>
+     <x>83</x>
+     <y>-206</y>
     </hint>
     <hint type="destinationlabel">
-     <x>126</x>
-     <y>171</y>
+     <x>139</x>
+     <y>24</y>
     </hint>
    </hints>
   </connection>
@@ -3065,11 +3223,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>365</x>
-     <y>187</y>
+     <y>274</y>
     </hint>
     <hint type="destinationlabel">
-     <x>365</x>
-     <y>549</y>
+     <x>370</x>
+     <y>571</y>
     </hint>
    </hints>
   </connection>
@@ -3080,12 +3238,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>465</x>
-     <y>186</y>
+     <x>459</x>
+     <y>273</y>
     </hint>
     <hint type="destinationlabel">
-     <x>500</x>
-     <y>549</y>
+     <x>491</x>
+     <y>571</y>
     </hint>
    </hints>
   </connection>
@@ -3096,12 +3254,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>634</x>
-     <y>187</y>
+     <x>613</x>
+     <y>278</y>
     </hint>
     <hint type="destinationlabel">
-     <x>634</x>
-     <y>549</y>
+     <x>613</x>
+     <y>571</y>
     </hint>
    </hints>
   </connection>
@@ -3112,12 +3270,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>92</x>
-     <y>255</y>
+     <x>105</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
-     <x>274</x>
-     <y>256</y>
+     <x>272</x>
+     <y>115</y>
     </hint>
    </hints>
   </connection>
@@ -3128,12 +3286,124 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>77</x>
-     <y>141</y>
+     <x>83</x>
+     <y>-8</y>
     </hint>
     <hint type="destinationlabel">
-     <x>379</x>
-     <y>141</y>
+     <x>373</x>
+     <y>-8</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>home_sense_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>home_ax1_re_checkBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>110</x>
+     <y>393</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>109</x>
+     <y>428</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>home_sense_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>home_ax2_re_checkBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>171</x>
+     <y>399</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>179</x>
+     <y>461</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>home_ax1_re_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>home_ax1_re_comboBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>270</x>
+     <y>425</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>349</x>
+     <y>432</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>home_ax2_re_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>home_ax2_re_comboBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>258</x>
+     <y>456</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>338</x>
+     <y>458</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rot_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>rot_auto_checkBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>315</x>
+     <y>266</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>269</x>
+     <y>583</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>focus1_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>focus1_auto_checkBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>427</x>
+     <y>267</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>586</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>focus2_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>focus2_auto_checkBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>588</x>
+     <y>272</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>540</x>
+     <y>581</y>
     </hint>
    </hints>
   </connection>
