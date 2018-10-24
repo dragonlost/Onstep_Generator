@@ -100,7 +100,17 @@
               </item>
               <item>
                <property name="text">
-                <string>STM32F1 (outdate)</string>
+                <string>STM32F103C8T6 Blue Pill</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>STM32F103C8T6 Black Pill</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>STM32F103VET6 CZ Mini</string>
                </property>
               </item>
               <item>

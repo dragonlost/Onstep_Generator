@@ -11,11 +11,11 @@ def read_conf_file(path_name):
     for i in range(len(text)) : text[i]=text[i].strip()
     # Convertion des variables (float, int, bool)
     
-    ff = [4,5,13,14,28,29,31,32,35,37,38,41,43,44,80,81]#float
-    ii = [2,6,15,25,26,34,40,51,59,64,69,71,74,82,84,85,86,87,88,89]# integer
-    bol = [3,10,19,22,23,24,30,36,42,48,49,50,52,53,54,55,56,57,58,61,62,63,66,
-           67,68,70,72,75,76,77,78,79,83,90]# boolen
-    ss = [0,1,7,8,9,11,12,16,17,18,20,21,27,33,39,45,46,47,60,65,73]#string
+    ff = [4,5,13,14,28,29,31,32,35,37,38,41,43,44,79,80]#float
+    ii = [2,6,15,25,26,34,40,51,58,63,68,70,73,81,83,84,85,86,87,88]# integer
+    bol = [3,10,19,22,23,24,30,36,42,48,49,50,52,53,54,55,56,57,60,61,62,65,66,
+           67,69,71,74,75,76,77,78,82,89,90,91,92,93,94,95,96]# boolen
+    ss = [0,1,7,8,9,11,12,16,17,18,20,21,27,33,39,45,46,47,59,64,72,97,98]#string
     var_str = ['board_type','mount_type','max_rate','auto_sid',
                'worm1','gear1','stepper1','micro1','slew1','driver1','reverse1','ena1','fault1',
                'worm2','gear2','stepper2','micro2','slew2','driver2','reverse2','ena2','fault2',
@@ -175,8 +175,12 @@ def onstep_config(path_read, path=""):
         board="MiniPCB"
     elif dico["board_type"] == "MaxPCB (4 axis)":
         board="MaxPCB"
-    elif dico["board_type"] == "STM32F1 (outdate)":
-        board="STM32"
+    elif dico["board_type"] == "STM32F103C8T6 Blue Pill":
+        board="STM32Blue"
+    elif dico["board_type"] == "STM32F103C8T6 Black Pill":
+        board="STM32Black"
+    elif dico["board_type"] == "STM32F103VET6 CZ Mini":
+        board="STM32CZ"
     elif dico["board_type"] == "TivaC (just for BETA)":
         board="TM4C"
     elif dico["board_type"] == "Classic":
