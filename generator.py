@@ -2,7 +2,7 @@
 
 import time
 
-version = "BETA_0.7"
+version = "BETA_0.8"
 
 def read_conf_file(path_name):
     file = open(path_name,'r')
