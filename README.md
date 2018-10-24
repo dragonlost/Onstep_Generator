@@ -5,7 +5,7 @@
 Program generate config file for Onstep program.
 
 ## Compatibility :
-Version Beta_0.7 of Generator is compatible with 15/05/2018 OnStep Alpha Version.
+Version Beta_0.7 of Generator is compatible with 24/10/2018 OnStep Alpha Version.
 
 The default settings are the __same__ as OnStep
 
@@ -50,14 +50,11 @@ Run : `python main.py`  (in CMD or Shell)
 ## ToDo :
 
 * Add Tuto and explanation in Readme
-
-* Add Axis5/Focus3 and just activate for Ramps 1.4.
 * Add MacOS executable version
 * Add Warning for Low Rate
 * Add Warning for Low Tracking resolution ([xls file](http://www.stellarjourney.com/assets/downloads/OnStep-Calculations.xls))
 * Add Maximum slew rate update dynamically
 * Add Steps Per Degree update dynamically
-* Add option to generate without comment
 * Add French language and control of the display language
 * Add comment bubble for parameters
 * *Add Possibility for upload OnStep code in controller (teensy and arduino in first time)* 
