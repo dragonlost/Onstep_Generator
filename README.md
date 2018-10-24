@@ -5,7 +5,7 @@
 Program generate config file for Onstep program.
 
 ## Compatibility :
-Version Beta_0.7 of Generator is compatible with 24/10/2018 OnStep Alpha Version.
+Version Beta_0.8 of Generator is compatible with 24/10/2018 OnStep Alpha Version.
 
 The default settings are the __same__ as OnStep
 
