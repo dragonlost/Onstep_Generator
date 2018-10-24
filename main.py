@@ -66,7 +66,7 @@ class ShipHolderApplication(QtWidgets.QMainWindow):
         self.ui.prompt_textbrowser.append("Config File path : "+self.PathName)
 
     def about_click(self):
-        QtWidgets.QMessageBox.about(self,'About',"Onstep configurator GUI v.BETA_0.7\n About Sébastien Durand\n For help contact me at : dragonlost1@hotmail.fr")
+        QtWidgets.QMessageBox.about(self,'About',"Onstep configurator GUI v.BETA_0.8\n Compatibility with Onstep Alpha Code at 24/10/2018\n About Sébastien Durand\n For help contact me at : dragonlost1@hotmail.fr")
         
     def call_var(self):
         # General ____________________________________________
