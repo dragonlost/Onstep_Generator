@@ -306,6 +306,22 @@ def onstep_config(path_read, path=""):
         
     else:
         config_file = open(path,"w")
+    
+    
+    if dico["rot_autodi"]:
+        autodi_rot="ON"
+    else:
+        autodi_rot="OFF"
+        
+    if dico["foc1_autodi"]:
+        autodi1="ON"
+    else:
+        autodi1="OFF"
+        
+    if dico["foc2_autodi"]:
+        autodi2="ON"
+    else:
+        autodi2="OFF"
         
     #==========================================================================
     #==========================================================================
@@ -390,7 +406,7 @@ def onstep_config(path_read, path=""):
     config_file.write("// If the stop command is never received the guide will continue forever unless this is enabled.\n")
     config_file.write("#define GUIDE_TIME_LIMIT "+str(dico["guide_time"])+"\n")
     config_file.write("\n")
-    if ((board != "Classic") or (board !="STM32")):
+    if ((board != "Classic") and (board != "STM32Blue") and (board != "STM32Black") and (board != "STM32CZ")):
         config_file.write("// RTC (Real Time Clock) support, default=_OFF.\n")
         config_file.write("// Other options: RTC_DS3234 for a DS3234 on the default SPI interface (CS on pin 10) or RTC_DS3231 for a DS3231 on the default I2C pins (optionally wire the SQW output to the PPS pin below.)\n")
         config_file.write("#define RTC_"+dico["rtc"]+"\n")
@@ -648,7 +664,7 @@ def onstep_config(path_read, path=""):
                 config_file.write("#define AXIS3_DISABLE_"+dico["rot_disable"]+"            // Pin 36 (Aux3.)  Default _OFF, use HIGH for common stepper drivers.\n")
             else:
                 config_file.write("#define AXIS3_DISABLE "+dico["rot_disable"]+"            // Pin 36 (Aux3.)  Default _OFF, use HIGH for common stepper drivers.\n")
-            config_file.write("#define AXIS3_AUTO_POWER_DOWN_"+dico["rot_autodi"]+"    // use _ON if you want to power down the motor at stand-still.  Default _OFF.\n")
+            config_file.write("#define AXIS3_AUTO_POWER_DOWN_"+autodi_rot+"    // use _ON if you want to power down the motor at stand-still.  Default _OFF.\n")
         config_file.write("\n")
         
         
@@ -669,11 +685,11 @@ def onstep_config(path_read, path=""):
                 config_file.write("#define AXIS4_DISABLE_"+dico["foc1_disable"]+"            // Pin 39 (Aux4.)  Default _OFF, use HIGH for common stepper drivers.\n")
             else:                      
                 config_file.write("#define AXIS4_DISABLE "+dico["foc1_disable"]+"            // Pin 39 (Aux4.)  Default _OFF, use HIGH for common stepper drivers.\n")
-            config_file.write("#define AXIS4_AUTO_POWER_DOWN_"+dico["foc1_autodi"]+"    // use _ON if you want to power down the motor at stand-still.  Default _OFF.\n")
+            config_file.write("#define AXIS4_AUTO_POWER_DOWN_"+autodi1+"    // use _ON if you want to power down the motor at stand-still.  Default _OFF.\n")
         config_file.write("\n")
             
         
-        if ((board != "TM4C") and (board != "STM32")):
+        if ((board != "TM4C") and (board != "STM32Blue") and (board != "STM32Black") and (board != "STM32CZ")):
             config_file.write("// FOCUSER2 ---------------------------------------------------------------------------------------------------------------\n")
             if board != "ramps14":
                 config_file.write("// Pins 30,33 = Step,Dir (choose either this option or the rotator, not both) \n")
@@ -692,7 +708,7 @@ def onstep_config(path_read, path=""):
                     config_file.write("#define AXIS5_DISABLE_"+dico["foc2_disable"]+"            // Pin 36 (Aux3.)  Default _OFF, use HIGH for common stepper drivers.\n")
                 else:
                     config_file.write("#define AXIS5_DISABLE "+dico["foc2_disable"]+"            // Pin 36 (Aux3.)  Default _OFF, use HIGH for common stepper drivers.\n")
-                config_file.write("#define AXIS5_AUTO_POWER_DOWN_"+dico["foc2_autodi"]+"            // use _ON if you want to power down the motor at stand-still.  Default _OFF.\n")                  
+                config_file.write("#define AXIS5_AUTO_POWER_DOWN_"+autodi2+"            // use _ON if you want to power down the motor at stand-still.  Default _OFF.\n")                  
             config_file.write("\n")
             
     #==========================================================================
@@ -706,7 +722,10 @@ def onstep_config(path_read, path=""):
     config_file.write("\n")
     config_file.write("// -------------------------------------------------------------------------------------------------------------------------\n")
     config_file.write("#define FileVersionConfig 2\n")
-    config_file.write("#include \"src/pinmaps/Pins."+board+".h\"\n")
+    if ((board == "STM32Blue") or (board == "STM32Black")):
+        config_file.write("#include \"src/pinmaps/Pins.STM32B.h\"\n")
+    else:
+        config_file.write("#include \"src/pinmaps/Pins."+board+".h\"\n")
     config_file.write("#endif\n")
     
     config_file.close()
