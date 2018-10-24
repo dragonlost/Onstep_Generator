@@ -58,11 +58,9 @@ class ShipHolderApplication(QtWidgets.QMainWindow):
         self.ui.prompt_textbrowser.append("Generation End succeful")
 
     def path_click(self):
-        self.PathName = QtWidgets.QFileDialog.getSaveFileName( self, 
-			"Define Save File for OnStep Conf", QtCore.QDir.homePath(), 
-			"text File (*.txt)")
-        self.ui.path_line.setText(self.PathName[0])
-        self.PathName = self.PathName[0]
+        self.PathName = QtWidgets.QFileDialog.getExistingDirectory(self, 
+			"Define Save Folder for OnStep Conf", QtCore.QDir.homePath())
+        self.ui.path_line.setText(self.PathName)
         self.ui.prompt_textbrowser.append("Config File path : "+self.PathName)
 
     def about_click(self):

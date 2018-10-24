@@ -307,7 +307,7 @@ def onstep_config(path_read, path=""):
         else:
             config_file = open("Config."+board+".h","w")
     else:
-        config_file = open(path+"Config."+board+".h","w")
+        config_file = open(path+"/Config."+board+".h","w")
     
     
     if dico["rot_autodi"]:
