@@ -302,10 +302,12 @@ def onstep_config(path_read, path=""):
         a_sid="OFF"
 
     if path == "":
-        config_file = open("Config."+board+".h","w")
-        
+        if ((board == "STM32Blue") and (board == "STM32Black") and (board == "STM32CZ")):
+            config_file = open("Config.STM32.h","w")
+        else:
+            config_file = open("Config."+board+".h","w")
     else:
-        config_file = open(path,"w")
+        config_file = open(path+"Config."+board+".h","w")
     
     
     if dico["rot_autodi"]:
@@ -681,10 +683,10 @@ def onstep_config(path_read, path=""):
         config_file.write("#define AXIS4_REVERSE_"+foc1_rev+"            // reverse the direction of Axis4 focuser movement\n")          
                           
         if ((board != "Classic") and (board != "MiniPCB")):
-            if dico["foc1_disable"] == "OFF":
-                config_file.write("#define AXIS4_DISABLE_"+dico["foc1_disable"]+"            // Pin 39 (Aux4.)  Default _OFF, use HIGH for common stepper drivers.\n")
+            if dico["focus1_disable"] == "OFF":
+                config_file.write("#define AXIS4_DISABLE_"+dico["focus1_disable"]+"            // Pin 39 (Aux4.)  Default _OFF, use HIGH for common stepper drivers.\n")
             else:                      
-                config_file.write("#define AXIS4_DISABLE "+dico["foc1_disable"]+"            // Pin 39 (Aux4.)  Default _OFF, use HIGH for common stepper drivers.\n")
+                config_file.write("#define AXIS4_DISABLE "+dico["focus1_disable"]+"            // Pin 39 (Aux4.)  Default _OFF, use HIGH for common stepper drivers.\n")
             config_file.write("#define AXIS4_AUTO_POWER_DOWN_"+autodi1+"    // use _ON if you want to power down the motor at stand-still.  Default _OFF.\n")
         config_file.write("\n")
             
@@ -704,10 +706,10 @@ def onstep_config(path_read, path=""):
             config_file.write("#define AXIS5_REVERSE_"+foc2_rev+"            // reverse the direction of Axis5 focuser movement\n")
             
             if ((board != "Classic") and (board != "MiniPCB")):
-                if dico["foc2_disable"] == "OFF":                  
-                    config_file.write("#define AXIS5_DISABLE_"+dico["foc2_disable"]+"            // Pin 36 (Aux3.)  Default _OFF, use HIGH for common stepper drivers.\n")
+                if dico["focus2_disable"] == "OFF":                  
+                    config_file.write("#define AXIS5_DISABLE_"+dico["focus2_disable"]+"            // Pin 36 (Aux3.)  Default _OFF, use HIGH for common stepper drivers.\n")
                 else:
-                    config_file.write("#define AXIS5_DISABLE "+dico["foc2_disable"]+"            // Pin 36 (Aux3.)  Default _OFF, use HIGH for common stepper drivers.\n")
+                    config_file.write("#define AXIS5_DISABLE "+dico["focus2_disable"]+"            // Pin 36 (Aux3.)  Default _OFF, use HIGH for common stepper drivers.\n")
                 config_file.write("#define AXIS5_AUTO_POWER_DOWN_"+autodi2+"            // use _ON if you want to power down the motor at stand-still.  Default _OFF.\n")                  
             config_file.write("\n")
             
