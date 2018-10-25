@@ -10,6 +10,7 @@ class ShipHolderApplication(QtWidgets.QMainWindow):
         self.createWidgets()
         self.connectActions()
         self.PathName=''
+        self.name=''
 
     def createWidgets(self):
         self.ui = Ui_configurator()
@@ -48,13 +49,20 @@ class ShipHolderApplication(QtWidgets.QMainWindow):
             
     def generate_click(self):
         var = self.call_var()
+        self.name = self.ui.name_lineEdit.text()
         temp_path = "config_file_temp.conf"
         self.create_conf_file(temp_path,var)
         self.ui.prompt_textbrowser.append("Generation Start")
         if self.PathName == '':
-            gen.onstep_config(temp_path)
+            if self.name == '':
+                gen.onstep_config(temp_path)
+            else:
+                gen.onstep_config(temp_path,name=self.name)
         else:
-            gen.onstep_config(temp_path, path=self.PathName)
+            if self.name == '':
+                gen.onstep_config(temp_path, path=self.PathName)
+            else:
+                gen.onstep_config(temp_path, path=self.PathName, name=self.name)
         self.ui.prompt_textbrowser.append("Generation End succeful")
 
     def path_click(self):

@@ -61,7 +61,7 @@ def bool_convert(var_str):
     return var_bool
 
 
-def onstep_config(path_read, path=""):
+def onstep_config(path_read, path="", name=""):
     
     dico = read_conf_file(path_read)
     
@@ -302,12 +302,21 @@ def onstep_config(path_read, path=""):
         a_sid="OFF"
 
     if path == "":
-        if ((board == "STM32Blue") and (board == "STM32Black") and (board == "STM32CZ")):
-            config_file = open("Config.STM32.h","w")
+        if name == "":
+            if ((board == "STM32Blue") and (board == "STM32Black") and (board == "STM32CZ")):
+                config_file = open("Config.STM32.h","w")
+            else:
+                config_file = open("Config."+board+".h","w")
         else:
-            config_file = open("Config."+board+".h","w")
+            config_file = open(name,"w")
     else:
-        config_file = open(path+"/Config."+board+".h","w")
+        if name == "":
+            if ((board == "STM32Blue") and (board == "STM32Black") and (board == "STM32CZ")):
+                config_file = open(path+"/Config.STM32.h","w")
+            else:
+                config_file = open(path+"/Config."+board+".h","w")
+        else:
+            config_file = open(path+"/"+name,"w")
     
     
     if dico["rot_autodi"]:

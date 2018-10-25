@@ -1063,6 +1063,17 @@ class Ui_configurator(object):
         self.path_button.setObjectName("path_button")
         self.horizontalLayout_6.addWidget(self.path_button)
         self.verticalLayout.addLayout(self.horizontalLayout_6)
+        self.horizontalLayout_27 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_27.setContentsMargins(11, 11, 11, 11)
+        self.horizontalLayout_27.setSpacing(6)
+        self.horizontalLayout_27.setObjectName("horizontalLayout_27")
+        self.label_52 = QtWidgets.QLabel(self.centralWidget)
+        self.label_52.setObjectName("label_52")
+        self.horizontalLayout_27.addWidget(self.label_52)
+        self.name_lineEdit = QtWidgets.QLineEdit(self.centralWidget)
+        self.name_lineEdit.setObjectName("name_lineEdit")
+        self.horizontalLayout_27.addWidget(self.name_lineEdit)
+        self.verticalLayout.addLayout(self.horizontalLayout_27)
         self.prompt_textbrowser = QtWidgets.QTextBrowser(self.centralWidget)
         self.prompt_textbrowser.setMaximumSize(QtCore.QSize(16777215, 100))
         self.prompt_textbrowser.setObjectName("prompt_textbrowser")
@@ -1387,6 +1398,7 @@ class Ui_configurator(object):
         self.generate_buttom.setText(_translate("configurator", "Generate"))
         self.label_46.setText(_translate("configurator", "Config Path (option) : "))
         self.path_button.setText(_translate("configurator", "..."))
+        self.label_52.setText(_translate("configurator", "Config File name (option, need \".h\" at the end of name) :"))
         self.prompt_textbrowser.setHtml(_translate("configurator", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"

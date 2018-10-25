@@ -2639,6 +2639,20 @@
        </layout>
       </item>
       <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_27">
+        <item>
+         <widget class="QLabel" name="label_52">
+          <property name="text">
+           <string>Config File name (option, need &quot;.h&quot; at the end of name) :</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="name_lineEdit"/>
+        </item>
+       </layout>
+      </item>
+      <item>
        <widget class="QTextBrowser" name="prompt_textbrowser">
         <property name="maximumSize">
          <size>
