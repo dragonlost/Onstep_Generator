@@ -10,7 +10,7 @@
 
 sudo add-apt-repository ppa:nilarimogard/webupd8 -y
 sudo apt-get update
-sudo apt-get install python3 python3-pyqt5 yad
+sudo apt-get -y install python3 python3-pyqt5 yad
 
 if generator_path=`yad --file-selection \
 					--directory \
