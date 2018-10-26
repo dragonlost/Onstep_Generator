@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+
+Type=Application
+Encoding=UTF-8
+Name=OnStep_Generator
+GenericName=OnStep_Generator
+Comment=OnStep Generator
+Path=/LOCAL_FOLDER
+Icon=/LOCAL_FOLDER/OnStep.ico
+Exec=bash -ic "python3 /LOCAL_FOLDER/main.py"
+Terminal=true
+StartupNotify=false
+Categories=Application;Education;
