@@ -24,7 +24,7 @@ I Use [Pyinstaller](https://www.pyinstaller.org/) For compiling
 [OnStep_Generator](https://share.obspm.fr/index.php/s/pdZDLTYfBP9XfeJ)
 
 * For __Windows__ --> [Windows](https://github.com/dragonlost/Onstep_Generator/raw/master/executable/OnStep_Generator_Linux64_vB0.6.zip)
-* For __Linux__ --> [Linux](https://share.obspm.fr/index.php/s/KZ7XB6KTWjBbdZc)
+* For __Linux__ --> [Linux](https://share.obspm.fr/index.php/s/HRCYynCFoXQWtSD)
 
 Unzip and Run Onstep_Generator (*double click*)
 
