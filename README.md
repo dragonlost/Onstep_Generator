@@ -11,6 +11,8 @@ The default settings are the __same__ as OnStep
 
 Executable is compatible with __Windows__ and __Linux__ (__MacOS__ *ToDo...*).
 
+__Warning__: The pin numbers of the comments are not good in the comments
+
 ## Installation :
 
 __Two methods :__
@@ -51,6 +53,8 @@ Run : `python main.py`  (in CMD or Shell)
 
 ## ToDo :
 
+* Compatble with MaxESP card
+* Dynamique pin map for all card in comment
 * Add Tuto and explanation in Readme
 * Add MacOS executable version
 * Add Warning for Low Rate
