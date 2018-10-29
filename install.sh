@@ -19,7 +19,7 @@ if generator_path=`yad --file-selection \
 					--text="Select OnStep_Generator Folder"`
 then
 	cp $generator_path/temp_Onstep_Generator.desktop.temp $generator_path/Onstep_Generator.desktop
-	sed -i -e "s=/LOCAL_FOLDER=$generator_path=" ./Onstep_Generator.desktop
+	sed -i -e "s=/LOCAL_FOLDER=$generator_path=" $generator_path/Onstep_Generator.desktop
 	echo -e "Icon update"
 
 	sudo mv $generator_path/Onstep_Generator.desktop /usr/share/applications/
